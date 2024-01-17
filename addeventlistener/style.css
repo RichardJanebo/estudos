@@ -34,17 +34,19 @@ button{
     margin: 5px auto;
 
 }
-.selecionado{
-    background-color: #800;
-    color: #fcc;
-    border-color: #f00;
-}
+
 .c1{
     background-color: #ccc;
     color: #444;
+    
 
 }
 .c2{
     background-color: #444;
     color: #ccc;
+}
+.selecionado{
+    background-color: #800;
+    color: #fcc;
+    border-color: #f00;
 }

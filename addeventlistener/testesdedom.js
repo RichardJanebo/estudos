@@ -4,16 +4,22 @@ const botao =  document.getElementById('btn_copiar')
 const todosCursos = [...document.getElementsByClassName('curso')]
 
 todosCursos.map((el)=>{
-    el.addEventListener('click', (evt)=>{
-        const cursos = evt.target
-        cursos.classList.toggle('selecionado')
+    el.addEventListener('click',(el)=>{
+        const sele = el.target
+        sele.classList.toggle("selecionado")
     })
 })
-botao.addEventListener('click',()=>{
-    const cursoSelecionado = [...document.getElementsByClassName('selecionado')]
-    cursoSelecionado.map((el)=>{
+
+botao.addEventListener('click', ()=>{
+    const cursosSelecionados = [...document.getElementsByClassName('selecionado')]
+    const cursosNaoselecionados = [...document.querySelectorAll('.curso:not(.selecionado)')]
+    console.log(cursosNaoselecionados)
+    cursosSelecionados.map((el)=>{
         caixa2.appendChild(el)
     })
-
+    cursosNaoselecionados.map((el)=>{
+        caixa1.appendChild(el)
+    })
+    
 })
 
