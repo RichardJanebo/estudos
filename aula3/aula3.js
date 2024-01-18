@@ -11,6 +11,5 @@ function vernome(){
 vernome()
 console.log(`Variavel declarada fora do escopo da função ${nome}`) 
 
-const numer = 10 
-var soma = numer + 1
-console.log(soma)
+const numer = 10 //Não pode mais ser mudada
+
