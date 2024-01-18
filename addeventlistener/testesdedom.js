@@ -19,7 +19,6 @@ botao.addEventListener('click', ()=>{
     })
     cursosNaoselecionados.map((el)=>{
         caixa1.appendChild(el)
-    })
-    
+    }) 
 })
 
