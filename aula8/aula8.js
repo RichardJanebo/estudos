@@ -4,5 +4,5 @@ let num2 = 11 // 1011
   Numero 0 significa False
 */
 
-res = num1 << 1
+res = num1 << 2
 console.log(res)
