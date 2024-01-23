@@ -4,12 +4,10 @@
 //     n --
 // }
 
-let n = 10
-let fat = 1
-while (n >= 1){
-    fat = fat * n
-    
+let n = 5
+let fatorial = 1
+while(n > 1){
+    fatorial = fatorial * n 
     n--
-
+    console.log(fatorial)
 }
-console.log(fat)
