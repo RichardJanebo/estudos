@@ -1,8 +1,16 @@
-function lona_calc(m){
-    let metroQuadrado =(m * 50) /3.20
-    metroQuadrado = metroQuadrado * 450
-
-    return metroQuadrado
+function mudar_texto(){
+    let divs = [...document.getElementsByTagName("div")]
+    divs.map((el)=>{
+        el.innerHTML="Mudou o nome"
+    })
 
 }
-console.log(lona_calc(1.60))
+let botao = window.document.getElementById('botao')
+botao.addEventListener('click',()=>{
+    
+    mudar_texto()
+    
+})
+
+
+
