@@ -1,10 +1,9 @@
-function calculo(...valores){
-    let n = valores.length
-    let res = 0
+function calcular(...valores){
+    let soma = 0
 
-   for (j of valores){
-    res = res + j
-   }
-    return res
+    for (j of valores){
+        soma = soma + j
+    }
+    return soma
 }
-console.log(calculo(10,10,10,10,20,100))
+console.log(calcular(10,20,30,40,50))
