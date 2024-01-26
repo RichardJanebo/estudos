@@ -22,8 +22,13 @@ function* numeros(){
     let num = 0
     while(true){
        yield num++
+       if (num > 20 ){
+        break
+       }
     }
 }
 
 let itc = numeros()
-console.log(itc.next().value)
+for (j of itc){
+    console.log(j)
+}
