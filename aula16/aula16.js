@@ -5,5 +5,4 @@ for (n of num){
 for (j in num){
     console.log(j)
 
-
 }
