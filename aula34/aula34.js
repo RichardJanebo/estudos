@@ -1,6 +1,9 @@
-const curso1 = document.querySelectorAll('.c1')
+const curso1 = [...document.getElementsByClassName('c1')]
 
-function msg(){
-    alert("ola mundo")
-}
-curso1.addEventListener('click', msg)
+curso1.map((el)=>{
+    el.addEventListener('click',(u)=>{
+        let sele = u.target
+        sele.classList.toggle('destaque')
+        console.log(el.className + "Foi clicado")
+    })
+})
