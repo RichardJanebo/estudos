@@ -12,6 +12,10 @@ cursos.map((el)=>{
 
 butao.addEventListener('click',()=>{
     let selecionados = [...document.getElementsByClassName('destaque')]
+    let cursosNaoSelecionados =[...document.querySelectorAll('.curso:not(.destaque)')]
+    cursosNaoSelecionados.map((el)=>{
+        caixa1.appendChild(el)
+    })
     selecionados.map((el)=>{
 
         caixa2.appendChild(el)
