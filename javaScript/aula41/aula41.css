@@ -1,0 +1,60 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+div#div1, div#div2 {
+    width: 400px;
+    height: 600px;
+    background-color: #ded4d4;
+    border: 5px solid black;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+button{
+    width: 100px;
+    background-color: rgb(33, 133, 133);
+    height: 30px;
+    margin: 0px 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+
+.lixo{
+    width: 25px;
+    cursor: pointer;
+}
+
+.curso{
+    display: flex;
+    justify-content:center;
+    width: 200px;
+    border: 4px solid #888;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px 0px;
+   
+    margin: 0.5rem auto;
+}
+.curso:hover{
+    border-color:#f00 ;
+}
+.c1{
+    background-color: #ccc;
+    color: #444;
+}
+
+.c2{
+    background-color: #444;
+    color: #ccc;
+}
+.destaque{
+    background-color: peru !important;
+    color: aqua !important;
+    border-color: darkblue !important;
+}
