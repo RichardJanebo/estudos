@@ -23,18 +23,31 @@ arrCursos.map((el,chave)=>{
     caixa2.appendChild(cursos)
 
 })
- btn_cursosSelecionados.addEventListener("click",(event)=>{
+
+
+const radioSelecionados = ()=>{
     const todosElementosRadio = [...document.querySelectorAll("input[type=radio]")]
-    let radioSelecionado = todosElementosRadio.filter((el)=>{
+    const radioSelecionado = todosElementosRadio.filter((el)=>{
         return el.checked
 
     })
-    radioSelecionado=radioSelecionado[0]
-    const curosSelecionados = radioSelecionado.parentNode.parentNode.firstChild.textContent
+    return radioSelecionado[0]
+}
+ btn_cursosSelecionados.addEventListener("click",(event)=>{
+    const rs = radioSelecionados()
+    
+    const curosSelecionados = rs.parentNode.parentNode.firstChild.textContent
     console.log(curosSelecionados)
     alert(curosSelecionados)
 
     console.log(todosElementosRadio)
     console.log(radioSelecionado)
+ })
+ btn_RemoverCursos.addEventListener("click",(el)=>{
+    const rs = radioSelecionados()
+    const cursoParaRemover = rs.parentNode.parentNode
+
+
+    caixa2.replaceChildren(cursoParaRemover)
  })
 
