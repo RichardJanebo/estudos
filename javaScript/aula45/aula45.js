@@ -3,24 +3,37 @@ const caixa1 = document.querySelector('#caixaDeFuncionalidades')
 const caixa2 = document.querySelector('#caixaCursos')
 const btn_cursosSelecionados = document.querySelector('#btnCursosSelecionados')
 const btn_RemoverCursos = document.querySelector('#btnRemoverCursos')
+const addCursoAntes = document.querySelector("#btnAdicionarNovosCursos")
+const addCursoDepois = document.querySelector("#adicionarD")
+const texto = document.querySelector("#texto")
 
-arrCursos.map((el,chave)=>{
+
+let indice = 0
+const criarNovoCurso = (el)=>{                  //cria o curso
     const cursos = document.createElement('div')
-    cursos.setAttribute("id","c"+ chave)
+    cursos.setAttribute("id","c"+ indice)
     cursos.setAttribute("class","curso c1")
     cursos.innerHTML=el
 
     const comandos =document.createElement("div")
     comandos.setAttribute("class","comandos")
-    
+
     const rb=document.createElement("input")
     rb.setAttribute("type","radio")
     rb.setAttribute("name","rb_curso")
 
     comandos.appendChild(rb)
-
     cursos.appendChild(comandos)
+    return cursos
+
+}
+
+arrCursos.map((el,chave)=>{
+    const cursos = criarNovoCurso(el)
+
+   
     caixa2.appendChild(cursos)
+    indice ++
 
 })
 
@@ -57,4 +70,31 @@ const radioSelecionados = ()=>{
 
     caixa2.removeChild(cursoParaRemover)
  })
+
+addCursoAntes.addEventListener("click",(el)=>{
+    const rs = radioSelecionados()
+    if (rs === undefined){
+        alert("Você precisa selecionar um ")
+    }
+    
+    const cursosSelecionados = rs.parentNode.parentNode
+    const cursos = criarNovoCurso(texto.value)
+    caixa2.insertBefore(cursos,cursosSelecionados)
+
+    
+   
+
+})
+addCursoDepois.addEventListener("click",(el)=>{
+    const rs = radioSelecionados()
+    if (rs === undefined){
+        alert("Você precisa selecionar um ")
+    }
+    
+    const cursosSelecionados = rs.parentNode.parentNode
+    const cursos = criarNovoCurso(texto.value)
+    caixa2.insertBefore(cursos,cursosSelecionados.nextSibling)
+})
+
+
 

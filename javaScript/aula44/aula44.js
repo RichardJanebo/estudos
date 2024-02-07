@@ -3,6 +3,9 @@ const caixa1 = document.querySelector('#caixaDeFuncionalidades')
 const caixa2 = document.querySelector('#caixaCursos')
 const btn_cursosSelecionados = document.querySelector('#btnCursosSelecionados')
 const btn_RemoverCursos = document.querySelector('#btnRemoverCursos')
+const texto = document.querySelector("#texto")
+
+
 
 arrCursos.map((el,chave)=>{
     const cursos = document.createElement('div')
