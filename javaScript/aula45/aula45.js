@@ -24,6 +24,7 @@ arrCursos.map((el,chave)=>{
 
 })
 
+
 const radioSelecionados = ()=>{
     const todosElementosRadio = [...document.querySelectorAll("input[type=radio]")]
     const radioSelecionado = todosElementosRadio.filter((el)=>{
