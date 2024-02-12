@@ -6,15 +6,9 @@ const resultado = document.querySelector("#resultado")
 const arrey_numerico = [21, 20, 10, 26, 55, 98]
 caixaArrey.innerHTML = arrey_numerico
 
-caixaPesquisar.addEventListener("click", () => {
-    const arrey = arrey_numerico.every((el,i)=>{
-        if(el < 18){
-            resultado.innerHTML=`Arrey não conforme na posição ${i+1}`
-        }
-        return el >= 18
+caixaPesquisar.addEventListener("click",()=>{
+    const verot = arrey_numerico.some((el)=>{
+        el > 18
     })
-    if (arrey == true){
-        resultado.innerHTML=`Retorno verdadeiro`
-    }
+    console.log(verot)
 })
-
