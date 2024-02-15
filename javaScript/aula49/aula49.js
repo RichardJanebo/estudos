@@ -11,7 +11,7 @@ caixaPesquisar.addEventListener("click",()=>{
         if ( el <= 18){
             resultado.innerHTML=`O valor que não esta em conformidade é o ${i}`
         }
-        return el > 18
+        return   el > 18
         
     })
     if (verot == true){
