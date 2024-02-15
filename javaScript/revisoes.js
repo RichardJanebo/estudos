@@ -1,18 +1,19 @@
-//  
+const ary = [10,20,30,40,100]
+let soma = 0
+let iteracoes = 1
+let valor = 0
 
-for (i= 0 ; i < 10; i++){
-    console.log("ola")
-}
-const arrey_numerico = [12, 2, 10, 6, 5, 98]
-const receber =arrey_numerico.some((el,i)=>{
-    if(el < 18){
-        console.log(`O elemento ${i} não esta em conformidade`)
-    }
-    return el > 18
 
-   
+const media = ary.map((el,i)=>{
+    soma = soma + el
+    
+    iteracoes =  i
+    iteracoes = iteracoes + 1
+    
+    
+     valor = soma / iteracoes
+
+     return valor  
 })
-if ( receber == true){
-    console.log("Tudo certo")
-
-}
+console.log(iteracoes)
+console.log(valor)
