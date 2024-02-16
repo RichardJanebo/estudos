@@ -4,5 +4,11 @@
 // map
 
 const valores = [10,54,68,54,98,27]
-const iterador = valore[Symbol.iterator]()
-console.log(iterador)
+const iterador = valores[Symbol.iterator]()
+console.log(iterador.next())
+console.log(iterador.next())
+console.log(iterador.next())
+console.log(iterador.next())
+console.log(iterador.next())
+console.log(iterador.next())
+console.log(iterador.next()) 
