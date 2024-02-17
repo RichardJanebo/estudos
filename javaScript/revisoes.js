@@ -1,63 +1,28 @@
-const idadades = [10,25,68,12,24,33,13,55,7,17]
+const div1 = document.getElementById("div1")
+const span = document.createElement("span")
+const eleFilho = div1.firstElementChild.firstChild
+const eleIrmao = eleFilho.nextSibling
 
-const are = idadades.filter((el)=>{
+div1.appendChild(span)
 
-    return el > 18
+const elePai = div1.parentNode
+
+console.log(elePai)
+console.log(div1.childNodes)
+console.log(eleIrmao)
+
+let cursos = ["Html","Css","JavaScript"] 
+cursos.pop()
+let num = [10,10,3,4,5,60,]
+const valida = num.reduce((el,at)=>{
+    let soma = el + at
+    console.log(el)
+    return soma
 })
-console.log(are)
 
-let num = 0
-while (num < 10){
-    num ++
-    console.log(num)
-}
-const div = document.querySelector("#div1")
-console.log(div.childNodes)
-// const paragrafo = document.createElement("p")
-// div.before(paragrafo)
+console.log(valida)
+cursos.push("Pascal")
+console.log(cursos)
 
-const someMetodo =idadades.some((el)=>{
-    return el > 18
-})
-console.log(someMetodo)
-
-function* geradora(){
-    yield "ola"
-    yield "teste"
-}
-const gerar = geradora()
-console.log(gerar.next().value)
-console.log(gerar.next().value)
-
-const nume = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sabado" ]
-let j = 0
-for (j in nume){
-    
-}
-console.log(j)
-idadades.reduce((anterior, atual , iterador)=>{
-    // console.log(atual)
-    console.log(anterior)
-
-
-})
-const i = idadades.every((el)=>{
-    return el > 18 
-})
-console.log(i)
-
-const laza = "lazanhad"
-switch (laza){
-    case  "lazanha":
-        console.log("Prato certo")
-    break
-    case "Cebola" : 
-    console.log("prato errado")
-    break
-
-    default :
-    console.log("Não temos esse prato")
-}
-
-const funConstrutora = new Function ("n1","n2","return n1 + n2")
-console.log(funConstrutora(10,10))
+num.unshift("ELemento")
+console.log(num)
