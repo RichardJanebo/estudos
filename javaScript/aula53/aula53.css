@@ -20,16 +20,19 @@ input{
     background-color: darkgray;
     border-radius: 5px;
 }
-p{
-    background-color: darkgray;
-    margin: 5px 0px;
-    padding: 1px;
-    border-radius: 5px;
-}
+
 button{
     padding: 10px;
     background-color: darkgray;
     width: 50px;
     border-radius: 5px;
     cursor: pointer;
+}
+#resultado{
+    background-color: darkgray;
+    width: 220px;
+    margin: 5px 0px;
+    text-align: start;
+    padding: 1px;
+    border-radius: 5px;
 }
