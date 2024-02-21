@@ -1,18 +1,18 @@
-// const caixa = document.getElementById("caixa")
+const caixa = document.getElementById("caixa")
 
-// const setColection = new Set()
+const setColection = new Set()
 
-// setColection.add("musica")
-// setColection.add("comida")
-// setColection.add("musica")
+setColection.add("musica")
+setColection.add("comida")
+setColection.add("musica")
 
 
 
-// setColection.forEach((el)=>{
+setColection.forEach((el)=>{
     
-//     console.log(el);
-// })
-// console.log(setColection.entries());
+    console.log(el);
+})
+console.log(setColection.entries());
 
 let num = [10,20,30,40,10,20,22,36,22]
 
