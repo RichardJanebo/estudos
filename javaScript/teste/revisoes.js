@@ -1,40 +1,33 @@
-const numero = 3
-const elevado = Math.pow(numero , 2)
-console.log(elevado)
+const todosOsCursos = ["Html","Css","JavaScript","Php","React","MySql","REact native","Python","RaspBary"]
+const div1 = document.getElementById("div1")
 
-const arre = "ola mundo"
-console.log(arre.split(" "))
-
-const arrey_numerico = [21, 20, 18, 26, 55, 98]
-
-const teste = arrey_numerico.every((el)=>{
-    return el >= 18
+todosOsCursos.map((el)=>{
+    const novoElemento = document.createElement("div")
+    novoElemento.innerHTML=el
+    div1.appendChild(novoElemento)
 })
-console.log(teste)
 
-const elementos = [
-    ()=>{
-        console.log("Elemento numero um ")
+const f = function(n,m){
+    return n + m
+}
+console.log(f(10,10))  // Função anonima 
 
-    },
-    ()=>{
-        console.log("Elemento numero 2")
-    }
+ const cursos = new Map([["carro","civic"]
 
-]
 
-// elementos[1]()
+])
 
-const div = document.querySelector("#div1")
-const p = document.getElementById("p")
+ cursos.set("curso","Java Script")
 
-div.addEventListener("click",()=>{
-    alert("voce clicou")
 
-})
-p.addEventListener("click",(el)=>{
-    el.stopPropagation()
-})
-let num1 = 14
-let res = num1 << 2
-console.log(res)
+console.log(cursos.get("curso"))
+console.log(cursos.get("carro"))
+
+const freeCodeCampBlog = new Map([
+    ['nome', 'freeCodeCamp'],
+    ['tipo', 'blog'],
+    ['autor', 'Tapas Adhikary'],
+  ]);
+
+  console.log(freeCodeCampBlog.get("autor"))
+
