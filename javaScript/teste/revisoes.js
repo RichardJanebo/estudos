@@ -1,33 +1,75 @@
-const todosOsCursos = ["Html","Css","JavaScript","Php","React","MySql","REact native","Python","RaspBary"]
-const div1 = document.getElementById("div1")
+// const colecao = new Map(
+//     [
+        
+//     ["curso","Java Script"],
+//     ["Jogo","Call of Duth"]
 
-todosOsCursos.map((el)=>{
-    const novoElemento = document.createElement("div")
-    novoElemento.innerHTML=el
-    div1.appendChild(novoElemento)
-})
 
-const f = function(n,m){
-    return n + m
+//     ]
+// )
+
+// colecao.set("carro","Civic")
+// console.log(colecao.get("carro"))
+
+
+// // console.log(colecao.get("curso"))
+
+// // const idades = [ 10,20,30,40,50]
+
+// // const teste = idades.reduce((passado,atual,indice)=>{
+// //     soma = passado + atual
+    
+// //     console.log(`Este é o atual ${atual}`)
+// //     console.log(`Este é o passado ${passado}`)
+// //     return soma
+// // })
+// // console.log(teste)
+
+// let num1 = 14 
+// let num2 = 11
+// console.log(num1 & num2)
+
+
+// const arrey = [
+    
+//     (el)=>{
+//         let soma =10
+//         soma += el
+//         return soma
+        
+//     }
+// ]
+// console.log(arrey[0](10))
+
+// arrey.unshift("Cavalo")
+
+// console.log(arrey[0])
+
+
+// const pesssoas = new Set()
+
+// pesssoas.add("6799995555")
+// pesssoas.add("Richard")
+// pesssoas.add("6799995555")
+
+
+
+
+// console.log(pesssoas)
+
+// let test =new Function ("n1","n2","return n1+n2")
+
+// console.log(test(10,10))
+
+class carro {
+    constructor(marca,velocidade){
+        if(marca == 1){
+           this.velocidade =300
+        }else if(marca == 2){
+            velocidade == 300
+        }
+    }
 }
-console.log(f(10,10))  // Função anonima 
 
- const cursos = new Map([["carro","civic"]
-
-
-])
-
- cursos.set("curso","Java Script")
-
-
-console.log(cursos.get("curso"))
-console.log(cursos.get("carro"))
-
-const freeCodeCampBlog = new Map([
-    ['nome', 'freeCodeCamp'],
-    ['tipo', 'blog'],
-    ['autor', 'Tapas Adhikary'],
-  ]);
-
-  console.log(freeCodeCampBlog.get("autor"))
-
+const l1 = new carro(1)
+console.log(l1.velocidade)
