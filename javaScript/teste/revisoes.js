@@ -1,22 +1,32 @@
-class carro{
-    constructor(pnome,ptipo){
-        this.nome = pnome
+//Revisão dia 27/02/2024
 
-        if (ptipo == 1){
-            this.tipo = "Comum"
-        }else if(ptipo == 2){
-            this.tipo = "Empresarial"
-        }else if(ptipo == 3){
-            this.tipo = "Corrida"
-        }
-    }
-
-    getInfo(){
-        return `O nome do carro é ${this.nome} e o tipo é ${this.tipo}`
+class pessoa{
+    constructor(pnome, pautura){
+        this.nome = pnome 
+        this.altura = pautura
     }
 }
 
+let p1 = new pessoa("Richard","1.70")
+console.log(p1.nome)
 
-let p1 = new carro("corola", 2)
+const setColection = new Set()
 
-console.log(p1.getInfo())
+setColection.add("JavaScript")
+setColection.add("Php")
+setColection.add("Laravvel")
+setColection.add("Laravvel")
+
+
+setColection.forEach((el,i)=>{
+    console.log(el)
+
+})
+
+let funcArr = [
+    (n1,n2)=>{ 
+    return n1+n2
+    }
+]
+
+console.log(funcArr[0](10,10))
