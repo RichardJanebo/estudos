@@ -1,47 +1,22 @@
-// for (i =0 ; i < 10; i++){
-//     console.log(i)
+class carro{
+    constructor(pnome,ptipo){
+        this.nome = pnome
 
-//     if (i == 5){
-//         break
-//     }
-// }
-// console.log("depois do loop")
+        if (ptipo == 1){
+            this.tipo = "Comum"
+        }else if(ptipo == 2){
+            this.tipo = "Empresarial"
+        }else if(ptipo == 3){
+            this.tipo = "Corrida"
+        }
+    }
 
-let m = [10,20,30,40,50]
-let m1 = [10,20,30,40]
-
-
-console.log(...m,...m1)
-
-const h1 = document.querySelector("#h1")
-const botao = document.querySelector("#button")
-
-
-const div1 = document.querySelector("#div1")
-div1.addEventListener("click",()=>{
-    h1.classList.toggle("vermelho") 
-    
-} 
-  )
+    getInfo(){
+        return `O nome do carro é ${this.nome} e o tipo é ${this.tipo}`
+    }
+}
 
 
+let p1 = new carro("corola", 2)
 
-  div2.appendChild(selecionado)
-
-
-  const selecionado = [...document.getElementsByClassName("vermelho")  ]
-
-  selecionado.map((el)=>{
-   let tae = el.textContent
-})
-
-
-    console.log(selecionado[0])
-  const div2 = document.querySelector("#div2")
-  console.log(div2)
-  botao.addEventListener("click",()=>{
-      // const naoSelecionado = document.querySelector(".curso not(.selecionado)")
-      
-  
-  
-  })
+console.log(p1.getInfo())
