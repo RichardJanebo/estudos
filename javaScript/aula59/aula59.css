@@ -28,6 +28,9 @@ input{
     background-color: darkgray;
     cursor: pointer;
 }
+button:hover{
+    background-color: aquamarine;
+}
 .paragrafo{
     background-color: antiquewhite;
 }
