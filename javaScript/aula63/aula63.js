@@ -19,16 +19,42 @@ radio2.addEventListener("click", (evt)=>{
 })
 
 
-class carro{
-    constructor(pnome,pportas,pblindagem){
+class normal{
+    constructor(pnome,pportas){
         this.nome = pnome
-        this.blidagem = pblindagem
         this.pportas = pportas
 
     }
 }
 
+class blindado extends normal{
+    constructor(pnome,pportas,blindagem,municao){
+        super(pnome,pportas)
+        this.minicao = municao
+        this.blindagem = blindagem
+    }
+
+    info(){
+        return `Nome: ${this.nome} </br> Portas:${this.pportas} `
+    }
+}
 
 
-let c1 = new carro(nome.value,port.value,blind.value)
+
+
+
+
+let res = []
+
+
+
+adicionar.addEventListener("click",()=>{
+    let c1 = new normal(nome.value,port.value,blind.value)
+    let c2 = new blindado(nome.value,port.value,blind.value,muni.value)
+
+
+    res.push(c2.info())
+    console.log(res)
+})
+
 
