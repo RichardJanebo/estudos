@@ -1,32 +1,23 @@
-//Revisão dia 27/02/2024
+let num = 2 
+let elevado = Math.pow(3 ,num)
+console.log(elevado)
 
-class pessoa{
-    constructor(pnome, pautura){
-        this.nome = pnome 
-        this.altura = pautura
-    }
+const soma = (n1 , n2)=>{
+  
+    
+    let som = n1 + n2
+    return som
 }
+console.log(soma(10,10))
 
-let p1 = new pessoa("Richard","1.70")
-console.log(p1.nome)
+let jogador1 = {
+    nome:"richard",
+    força:100,
+    velocidade:100,
+    altura:60,
+}
+console.log(jogador1.nome)
 
-const setColection = new Set()
-
-setColection.add("JavaScript")
-setColection.add("Php")
-setColection.add("Laravvel")
-setColection.add("Laravvel")
-
-
-setColection.forEach((el,i)=>{
-    console.log(el)
-
-})
-
-let funcArr = [
-    (n1,n2)=>{ 
-    return n1+n2
-    }
-]
-
-console.log(funcArr[0](10,10))
+let arreyDeNumeros = [10,20,30,40,50]
+arreyDeNumeros.unshift(5)
+console.log(arreyDeNumeros)
