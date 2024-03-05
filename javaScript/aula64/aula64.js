@@ -49,7 +49,14 @@ class blindado extends normal{
 
 let arrey_carros = []
 
-arrey_carros.filter
+console.log(arrey_carros)
+const removendo = (rem)=>{
+    arrey_carros=arrey_carros.filter((el)=>{
+        return el.nome!=rem
+    })
+
+}
+
 
 const gerenciarExibicaoDeCarros=()=>{
     paragrafo.innerHTML=""
@@ -58,12 +65,16 @@ const gerenciarExibicaoDeCarros=()=>{
         console.log(c)
         const div = document.createElement("div")
         const btn = document.createElement("button")
-        btn.addEventListener("click",(evt)=>{
-            console.log(evt.target.parentNode.dataSet.nome)
-
-        })
         div.setAttribute("class","carros")
         div.setAttribute("data-nome",c.nome)
+
+        btn.addEventListener("click",(evt)=>{
+            paragrafo.removeChild(evt.target.parentNode)
+            const rmv = evt.target.parentNode.getAttribute("data-nome")
+            removendo(rmv)
+            console.log(arrey_carros)
+        })
+       
         div.innerHTML=`Nome:${c.nome} Portas:${c.pportas} Munição:${c.minicao} Blindagem:${c.blindagem}`
         btn.innerHTML="Remover"
         paragrafo.appendChild(div)
