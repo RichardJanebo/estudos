@@ -85,11 +85,16 @@ const gerenciarExibicaoDeCarros=()=>{
 
 
 adicionar.addEventListener("click",()=>{
+    let c1 = new blindado(nome.value,port.value,blind.value,muni.value)
+    let c2 = new normal(nome.value,port.value)
+    if(c1.nome.length == 0 || c2.nome.length == 0){
+        alert("nome nulo")
+    }else 
+
+    
     if(radio1.checked){
-        let c1 = new blindado(nome.value,port.value,blind.value,muni.value)
         arrey_carros.push(c1)
     }else{
-        let c2 = new normal(nome.value,port.value)
         arrey_carros.push(c2)
     }
 
