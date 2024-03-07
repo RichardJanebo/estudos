@@ -1,23 +1,37 @@
-let num = 2 
-let elevado = Math.pow(3 ,num)
-console.log(elevado)
+const div1 = document.querySelector("#div1")
+const enviar = document.querySelector("#button")
 
-const soma = (n1 , n2)=>{
-  
+let cursos = ["Java Script", "Html","css"]
+const removendo = ()=>{
+    cursos.push("bola")
     
-    let som = n1 + n2
-    return som
 }
-console.log(soma(10,10))
 
-let jogador1 = {
-    nome:"richard",
-    força:100,
-    velocidade:100,
-    altura:60,
+enviar.addEventListener("click",()=>{
+    removendo()
+    criarDivs()
+    console.log(cursos)
+    
+})
+
+let arrey_cursos = [...cursos]
+
+const criarDivs = ()=>{
+    div1.innerHTML=""
+
+    cursos.map((el)=>{
+        const curso = document.createElement("div")
+        curso.setAttribute("class","cursos")
+        curso.innerHTML=el
+        div1.appendChild(curso)
+        console.log(div1)
+        curso.addEventListener("click",(evt)=>{
+            console.log(evt.target.nextSibling)
+        })
+    })
+
 }
-console.log(jogador1.nome)
 
-let arreyDeNumeros = [10,20,30,40,50]
-arreyDeNumeros.unshift(5)
-console.log(arreyDeNumeros)
+criarDivs()
+
+

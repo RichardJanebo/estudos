@@ -5,7 +5,7 @@ class npc{
     }
 
     info(){
-        return `Alert :${npc.alerta} Energia${this.energia} `
+        return `Alert :${npc.alerta} Energia:${this.energia} `
     
     }
 }
