@@ -1,16 +1,18 @@
-class npc{
-    static alerta = false
-    constructor(energy){
-        this.energia = energy
+class carro{
+    static portas = true
+    constructor(velocidade){
+        this.velocidade = velocidade
+        if (velocidade > 100){
+            this.turbo = true
+        }else{
+            this.turbo = false
+        }
     }
-
     info(){
-        return `Alert :${npc.alerta} Energia:${this.energia} `
-    
+        return `Velocidade: ${this.velocidade} Turbo ${this.turbo} Portas:${this.portas ?"4":"0"}`
     }
 }
 
-const npc1 = new npc(100)
+let n1 = new carro(98)
 
-
-console.log(npc1.info())
+console.log(n1.info())
