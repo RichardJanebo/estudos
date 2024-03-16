@@ -10,21 +10,26 @@ let sinal = false
 
 teclasNumericas.map((el)=>{
     el.addEventListener("click", (evt)=>{
+        sinal = false
+        if (display.innerHTML =="0"){
+            display.innerHTML=""
+        }
         display.innerHTML+=evt.target.innerHTML
     })
 
 })
 teclasOperacoes.map((el)=>{
     el.addEventListener("click", (evt)=>{
-        if (display.innerHTML =="2"){
-            display.innerHTML=""
-        }
+        
 
         if (!sinal){
             sinal = true
+            if (display.innerHTML =="0"){
+                display.innerHTML=""
+            }
             
             if(evt.target.innerHTML == "x"){
-                display.innerHTML="*"
+                display.innerHTML+="*"
 
             }else{
                 display.innerHTML+=evt.target.innerHTML
@@ -34,7 +39,8 @@ teclasOperacoes.map((el)=>{
 
 })
 limpar.addEventListener("click",()=>{
-    display.innerHTML="2"
+    sinal = false
+    display.innerHTML="0"
 })
 
 resposta.addEventListener("click",()=>{
