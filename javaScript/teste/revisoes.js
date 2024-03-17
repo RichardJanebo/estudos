@@ -1,26 +1,24 @@
-let n1 = 20
-let n2 = 25
+let numeros = [10,20,30,40,50,60,70]
+const res = document.querySelector("#res")
+const text = document.querySelector("#texto")
+const botao = document.getElementById("botao")
+const h1 = document.getElementById("h1")
 
 
-let k = [ 10,"Ola",30]
+numeros.map((el)=>{
+    const create = document.createElement("div")
+    create.innerHTML=el
+    h1.appendChild(create)
+})
 
-const aulas = {
-    nome:"Java Script",
-    materia:"objetos",
-    aula:{
-        aula01:"introdução",
-        aula02:"desenvolvimento",
-        aula03:"conclusão"
+botao.addEventListener("click",()=>{
+    numeros.find((ele,i)=>{
+        if (ele == text.value){
+            res.innerHTML= `O valor pesquisado foi o ${ele} e ele esta na posição ${i+1}`
+        }else{
+        
+        }
+    })
 
-    }
-}
 
-if (n1 === n2){
-    throw new TypeError("Deu erro")
-}else{
-    const convertString = JSON.stringify(aulas)
-    const spread = [...k]
-    console.log(k)
-    console.log(spread)
-    console.log(convertString)
-}
+})
