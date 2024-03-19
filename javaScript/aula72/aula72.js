@@ -7,14 +7,27 @@ const limpar = document.getElementById("tecla_clean")
 
 
 let sinal = false
+let decimal = false
 
 teclasNumericas.map((el)=>{
     el.addEventListener("click", (evt)=>{
         sinal = false
-        if (display.innerHTML =="0"){
-            display.innerHTML=""
+       
+        if(evt.target.innerHTML==","){
+            if(!decimal){
+                decimal = true
+                if(display.innerHTML=="0"){
+                    display.innerHTML="0,"
+                }
+                display.innerHTML+=evt.target.innerHTML
+            }
+
+        }else{
+            if (display.innerHTML =="0"){
+                display.innerHTML=""
+            }   
+            display.innerHTML+=evt.target.innerHTML
         }
-        display.innerHTML+=evt.target.innerHTML
     })
 
 })
@@ -27,7 +40,6 @@ teclasOperacoes.map((el)=>{
             if (display.innerHTML =="0"){
                 display.innerHTML=""
             }
-            
             if(evt.target.innerHTML == "x"){
                 display.innerHTML+="*"
 
@@ -40,6 +52,7 @@ teclasOperacoes.map((el)=>{
 })
 limpar.addEventListener("click",()=>{
     sinal = false
+    decimal = false
     display.innerHTML="0"
 })
 
