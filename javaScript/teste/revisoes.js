@@ -1,24 +1,29 @@
-let numeros = [10,20,30,40,50,60,70]
-const res = document.querySelector("#res")
-const text = document.querySelector("#texto")
-const botao = document.getElementById("botao")
-const h1 = document.getElementById("h1")
+class animais {
+    constructor(patas){
+        this.patas = patas
+    
+    if(this.constructor === animais){
+        throw new TypeError("Esta classe não pode ser instanciada")
+    }
+}
+}
 
 
-numeros.map((el)=>{
-    const create = document.createElement("div")
-    create.innerHTML=el
-    h1.appendChild(create)
-})
-
-botao.addEventListener("click",()=>{
-    numeros.find((ele,i)=>{
-        if (ele == text.value){
-            res.innerHTML= `O valor pesquisado foi o ${ele} e ele esta na posição ${i+1}`
-        }else{
-        
+class cachorro  extends animais{
+    constructor(som){
+        super(4)
+        this.som = som
+        if(this.som == "auau"){
+            this.agua = true
         }
-    })
+        
+    }
+}
 
+cachorro.prototype.vida = 10
 
-})
+let c1 = new cachorro("auau")
+
+let stringJson = JSON.stringify(c1)
+console.log(c1)
+console.log(stringJson)
