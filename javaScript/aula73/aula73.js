@@ -10,6 +10,7 @@ const tcpy = document.getElementById("tcpy")
 
 
 
+
 let sinal = false
 let decimal = false
 
@@ -74,3 +75,5 @@ tcpy.addEventListener("click",()=>{
     navigator.clipboard.writeText(display.innerHTML)
 
 })
+
+

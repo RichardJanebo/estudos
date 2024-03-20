@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     border: none;
@@ -8,11 +8,43 @@
 }
 
 
-.dflex{
+.aba_calc{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 15px;
+    height: 150px;
+    border-radius: 0px 2px 2px 0px;
+    background-color: #514438;
+    cursor: pointer;
+    color:white;
     
 
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+
+
 }
-.calc{
+
+.calc {
+    transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -220px;
+    top: 0px;
+
+}
+span{
+    color: wheat;
+}
+
+.calc_exibir{
+    transition: 1s;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,18 +52,17 @@
     left: 0px;
     top: 0px;
 
-    
-
-
 }
-.div_nome{
+
+
+.div_nome {
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
 
-.div_teclas{
+.div_teclas {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,14 +72,15 @@
     border: 2px solid #442d03;
     border-radius: 0px 0px 5px 5px;
 
-   
+
 
 }
-.tecla{
+
+.tecla {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#D97904;
+    background-color: #D97904;
     border: 3px solid #F2BB13;
     font-weight: bolder;
     width: 50px;
@@ -57,29 +89,31 @@
     border-radius: 5px;
     margin: 2px;
     box-shadow: 2px 1px 3px #442d03;
-    
+
 }
-.tecla:hover{
+
+.tecla:hover {
     background-color: crimson;
 
 }
 
 /* Display */
-.div_display{
+.div_display {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 220px;
     border-radius: 5px;
-    
+
 
 
 
 }
-.display{
+
+.display {
     width: 220px;
     text-align: right;
-    background-color:#f9d28a;
+    background-color: #f9d28a;
     padding: 5px;
     font-family: monospace;
     border: 2px solid #442d03;

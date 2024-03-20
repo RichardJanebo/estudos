@@ -5,6 +5,9 @@ const display = document.getElementById("display")
 const onOfo = document.getElementById("tecla_onOf")
 const limpar = document.getElementById("tecla_clean")
 const tcpy = document.getElementById("tcpy")
+const gaveta = document.getElementById("abaCalc")
+const calc = document.querySelector("#calc")
+
 
 
 
@@ -73,4 +76,7 @@ resposta.addEventListener("click",()=>{
 tcpy.addEventListener("click",()=>{
     navigator.clipboard.writeText(display.innerHTML)
 
+})
+gaveta.addEventListener("click",()=>{
+    calc.classList.toggle("calc_exibir")
 })
