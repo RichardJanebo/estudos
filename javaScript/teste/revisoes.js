@@ -1,29 +1,27 @@
-class animais {
-    constructor(patas){
-        this.patas = patas
-    
-    if(this.constructor === animais){
-        throw new TypeError("Esta classe não pode ser instanciada")
-    }
-}
-}
+let tempo = 3000
+let resultado = false
+
+let promessa = new Promise((ok,nao_ok)=>{
 
 
-class cachorro  extends animais{
-    constructor(som){
-        super(4)
-        this.som = som
-        if(this.som == "auau"){
-            this.agua = true
+    setTimeout(()=>{
+        resultado = true
+        if(resultado){
+            ok("Resualtado Verdadeiro")
+        }else{
+            nao_ok("Resultado Falso")
         }
-        
-    }
-}
 
-cachorro.prototype.vida = 10
+    },tempo)
 
-let c1 = new cachorro("auau")
+})
 
-let stringJson = JSON.stringify(c1)
-console.log(c1)
-console.log(stringJson)
+promessa.then((retorno)=>{
+    console.log(retorno)
+})
+
+promessa.catch((retorno)=>{
+    console.log(retorno)
+})
+
+console.log(10)
