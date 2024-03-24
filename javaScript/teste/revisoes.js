@@ -1,27 +1,66 @@
-let tempo = 3000
-let resultado = false
+const texto = document.getElementById("texto")
+const botao = document.querySelector("#botao")
+const answer = document.querySelector("#res")
+const h = document.querySelector("h1")
 
-let promessa = new Promise((ok,nao_ok)=>{
+h.innerHTML="Digite um numero e veja a taboada de multiplicação de 0 a 10 dele"
 
+function promessa(){
+    let promise = new Promise((resolve,reject)=>{
+        let temp = 3000
+    
+        setTimeout(()=>{
+            valor = true
+    
+            if (numero > 0){
+                resolve(  
+                    numero
+                )
+            }else{
+                reject("não puxou")
+            }
+    
+        },temp)
+    })
+    return promise
+}
 
-    setTimeout(()=>{
-        resultado = true
-        if(resultado){
-            ok("Resualtado Verdadeiro")
-        }else{
-            nao_ok("Resultado Falso")
-        }
+let taboada = (n)=>{  
+    answer.innerHTML=""
+    let valores = []
+    let indice = 1
+    while(indice <= 10){
+        let vezes = n * indice
+        valores.push(vezes)
+        indice ++
+    }
 
-    },tempo)
+    valores.map((ele,i)=>{
+        
+        const div = document.createElement("div")
+        div.innerHTML=`${n} X ${i+1} = ${ele}`
+        answer.appendChild(div)
+    })
+    
+    
+}
 
+let numero = 0
+
+botao.addEventListener("click",()=>{
+    answer.innerHTML="processando"
+    let conteudoTexto = texto.value 
+    numero = Number(conteudoTexto)
+    promessa()
+    .then((retorno)=>{
+        taboada(retorno)
+        
+    })
+    .catch((retorno)=>{
+        return answer.innerHTML=retorno
+    })
+    
+    
 })
 
-promessa.then((retorno)=>{
-    console.log(retorno)
-})
 
-promessa.catch((retorno)=>{
-    console.log(retorno)
-})
-
-console.log(10)
