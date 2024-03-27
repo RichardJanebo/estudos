@@ -34,6 +34,7 @@ button{
     margin: auto;
     color:#0D0D0D;
     font-weight: bolder;
+    cursor: pointer;
 
 }
 
