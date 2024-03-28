@@ -1,2 +1,6 @@
 const mat = document.querySelector("#mat")
-mat.innerHTML= Math.random()*10
+
+
+let num = 10
+
+mat.innerHTML = Math.pow(1.01,10)
