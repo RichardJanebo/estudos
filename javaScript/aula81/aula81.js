@@ -8,17 +8,14 @@ let posiy = 0
 
 
 body.addEventListener("mousemove",(evt)=>{
-    moveu(evt)
+    posiX = evt.clientX
+    posiy = evt.clientY
+
+    console.log(posiy)
     
 
 
 })
 
-function moveu(evt){
-    posiX = evt.clientX
-    posiy = evt.clientY
 
-    console.log(posiy)
-
-}
 
