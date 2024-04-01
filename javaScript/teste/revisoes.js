@@ -1,8 +1,15 @@
-const bomDia = ()=>{
-    const num = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sabado" ]
-    for(j in num){
-        console.log(j)
+class Carro{
+    constructor(portas,munição){
+        this.portas = portas
+        this.munição = munição
     }
 }
 
-// setInterval(bomDia,3000)
+
+class Carroforte{
+    constructor(){
+        super()
+    }
+}
+
+const c = new Carroforte()
