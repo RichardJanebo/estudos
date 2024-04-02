@@ -28,16 +28,18 @@
 
 function setNumber(fatorial){
     
-    let fat = 0
+    let fat = 1
     let fator = fatorial
 
     while(fator >= 1 ){
         
-        console.log(fator)
+        
+        fat = fat * fator
         fator--
 
 
     }
+    return fat
     
     
     
