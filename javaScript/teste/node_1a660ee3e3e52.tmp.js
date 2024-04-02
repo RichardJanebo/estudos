@@ -31,15 +31,13 @@ function setNumber(fatorial){
     let fat = 0
     let fator = fatorial
 
-    while(fator >= 1 ){
-        
-        console.log(fator)
-        fator--
+    while(fator > 1 ){
+        fatorial--
 
 
     }
     
-    
+    return fator
     
 }
 
