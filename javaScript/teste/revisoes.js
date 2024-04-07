@@ -1,11 +1,21 @@
-let bolas = [1,2,3,4,5,6,7,8,9,10]
+let n = 10
+let fat = 1
 
+while (n > 1){
+    fat = fat * n
+    console.log(fat)
+    n--
+}
 
-bolas = bolas.filter((b)=>{
-    if(b!=2){
-        return b
+const aulas = {
+    nome:"Java Script",
+    materia:"objetos",
+    aula:{
+        aula01:"introdução",
+        aula02:"desenvolvimento",
+        aula03:"conclusão"
+
     }
+}
 
-})
-
-console.log(bolas)
+console.log(JSON.stringify(aulas))
