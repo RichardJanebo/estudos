@@ -30,7 +30,9 @@ class Bola{
         this.id = Date.now()+"_"+Math.floor(Math.random()*1000000000)
         this.desenhar
         this.controls = setInterval(this.controlar,10)
-      
+        this.eu = document.getElementById(this.id)
+        numBall++
+        p.innerHTML=numBall
     }
 
     minhaPos = ()=>{
@@ -38,16 +40,45 @@ class Bola{
     }
 
     removerBalls = ()=>{
-       
+        clearInterval(this.controls)
+        balls = balls.filter((b)=>{
+            if(b.id!= this.id){
+                return b
+            }
+
+        })
+        this.eu.remove()
+        numBall--
+        p.innerHTML=numBall
 
     }
 
 
     desenhar = ()=>{
-        
+        const div = document.createElement("div")
+        div.setAttribute("id",this.id)
+        div.setAttribute("class","ball")
+        div.setAttribute("style",`left:${this.px};top:${this.py};width:${this.tam};height:${this.tam};background-color:rgb(${this.r},${this.g},${this.b})`)
+        this.palco.appendChild(div)
     }
+    colisao_bordas = ()=>{
+        if ( this.px + this.tam > widthStage ){
+            this.dirx = -1
 
+        }else {
+            this.dirx = 1
+        }
+
+    }
     controlar = ()=>{
+        colisao_bordas()
+        this.px += this.dirx * this.velx
+        this.px += this.diry * this.vely
+        this.eu.setAttribute("style",`left:${this.px};top:${this.py};width:${this.tam};height:${this.tam};background-color:rgb(${this.r},${this.g},${this.b})`)
+
+        if(this.px > widthStage || this.py > heightStage){
+            this.removerBalls()
+        }
 
     }
 
@@ -92,3 +123,6 @@ btnRemover.addEventListener("click",()=>{
     })
 
 })
+
+
+
