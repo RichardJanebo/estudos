@@ -10,7 +10,7 @@ let heightStage = stage.offsetHeight
 let balls = []
 let numBall = 0
 
-
+console.log(widthStage)
 
 
 class Bola{
@@ -61,24 +61,8 @@ class Bola{
         div.setAttribute("style",`left:${this.px};top:${this.py};width:${this.tam};height:${this.tam};background-color:rgb(${this.r},${this.g},${this.b})`)
         this.palco.appendChild(div)
     }
-    colisao_bordas = ()=>{
-        if ( this.px + this.tam > widthStage ){
-            this.dirx = -1
 
-        }else {
-            this.dirx = 1
-        }
-
-    }
     controlar = ()=>{
-        colisao_bordas()
-        this.px += this.dirx * this.velx
-        this.px += this.diry * this.vely
-        this.eu.setAttribute("style",`left:${this.px};top:${this.py};width:${this.tam};height:${this.tam};background-color:rgb(${this.r},${this.g},${this.b})`)
-
-        if(this.px > widthStage || this.py > heightStage){
-            this.removerBalls()
-        }
 
     }
 
