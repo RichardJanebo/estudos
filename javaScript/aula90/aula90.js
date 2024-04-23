@@ -56,7 +56,7 @@ const criadorDeDiv = () => {
         div.innerHTML = `Marca:${el.marca}</br>CPu:${el.cpu}</br> Ram:${el.ram}</br>Memoria:${el.ssd}</br> `
 
 
-        div.addEventListener("click", () => {
+        div.addEventListener("mousemove", () => {
             removeItem(el)
             criadorDeDiv()
         })
