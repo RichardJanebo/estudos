@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+.div_mae{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    max-width: 500px;
+    gap: 0.5rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 5px 0px 5px 10px;
+
+}
+.div_f{
+    display: flex;
+    flex-direction: column;
+}
+.div_f input{
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+button{
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.div_d{
+    padding: 1rem;
+    border: 1px solid black;
+    max-width: 300px;
+    margin: 5px 0px 5px 10px;
+    border-radius: 5px;
+
+
+}
