@@ -18,6 +18,16 @@ const mostrarNoArrey = () => {
         div.setAttribute("class", "div_d")
         div.innerHTML = `Nome:${el.nome} </br> Telefone:${el.telefone} </br> ${el.email}`
         bd.appendChild(div)
+
+
+        div.addEventListener("click", () => {
+        removerDo(el)            
+
+            
+        })
+
+
+
     })
 }
 
@@ -40,7 +50,19 @@ const cleanForm = () => {
 }
 
 
+let removerDo= (el)=>{
+    database = database.filter((e) => {
+                
+        if (el != e) {
+            return el
+        }
 
+    })
+
+
+    mostrarNoArrey()
+
+}
 
 const salvarNoBanco = (n, t, e) => {
     database.push({
