@@ -1,18 +1,12 @@
-class Cursos {
-    constructor(u,v){
-        this.velocidade = u
-        this.altura = v
-    }
-}
+import {eleminar} from "./testemodulo.js"
 
-class Animal extends Cursos{
-    constructor(l,n,j){
-        super(l,n)
-        this.stong = j
-    }
 
-}
+const botao = document.querySelector("#botao")
 
-const m = new Animal(10,20,30)
+botao.addEventListener("click",()=>{
+    eleminar(20)
+})
 
-console.log(m)
+
+
+
