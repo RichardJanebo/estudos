@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.painel{
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    gap: 1rem;
+
+}
+button{
+    padding: 0.6rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ccc;
+}
+.carro{
+    background-color: red;
+    border-radius: 10px;
+    
+}
