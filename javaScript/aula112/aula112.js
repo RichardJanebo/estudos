@@ -17,3 +17,5 @@ posx.innerHTML=`posx:${DomRect.x}`
 console.log(Math.floor(DomRect.y))
 
 
+
+
