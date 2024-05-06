@@ -20,3 +20,7 @@ class Camaro extends Carro{
     }
 }
 
+
+let n = new Camaro(4)
+
+console.log(n.portas)

@@ -5,17 +5,19 @@ const posy = document.getElementById("posy")
 const largura = document.getElementById("largura")
 const altura = document.getElementById("altura")
 
-q1.addEventListener("mousemove",({target})=>{
+
+q1.accessKey="p"
+q2.accessKey="m"
+
+
+q1.addEventListener("click",({target})=>{
     getDimencoes(target.getBoundingClientRect())
 
 })
-q2.addEventListener("mousemove",({target})=>{
+q2.addEventListener("click",({target})=>{
     getDimencoes(target.getBoundingClientRect())
 
 })
-
-
-
 
 
 const getDimencoes = (p)=>{
