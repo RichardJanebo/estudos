@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+    border: 0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+input{
+    border:  3px solid black;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    padding: 5px;
+}
+button{
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 800;
+}
