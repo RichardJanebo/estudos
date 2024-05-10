@@ -1,26 +1,7 @@
-let idadades = [10,25,68,12,24,33,13,55,7,17]
+    import {farofa} from "/moduloTeste1.js";
 
-idadades = idadades.filter((el)=>{
-    return el >18
-
-})
-console.log(idadades)
-
-
-class Carro{
-    constructor(p){
-        this.portas = p
-        this.cor = "Amarelo"
-    }
+if (farofa) {
+  farofa.map((el) => {
+    console.log(el);
+  });
 }
-
-class Camaro extends Carro{
-    constructor(s){
-        super(s)
-    }
-}
-
-
-let n = new Camaro(4)
-
-console.log(n.portas)
