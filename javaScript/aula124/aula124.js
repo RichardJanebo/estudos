@@ -28,7 +28,7 @@ let cabecalho = {
 }
 
 function post(){
-    fetch("https://abd01f3c-3d08-44b0-91ab-6c7883d2cec2-00-2vpt2brpi66ct.kirk.replit.dev/",{method:"Post",body:JSON.stringify(pessoa)})
+    fetch(endPoint,cabecalho)
     .then((resposta)=>{
         return resposta.json()
     })
