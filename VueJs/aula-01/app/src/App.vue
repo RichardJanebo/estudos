@@ -1,19 +1,17 @@
 <template>
-  <TheHeader v-if="showHeader"></TheHeader>
-  <div>
-     <p v-show="showPara">Nome : {{ name }}</p> 
-     <p >Sobrenome: {{ sobrenome }}</p> 
-  </div> 
-  <div v-if="assesLevel == 1" >Admin</div>
-  <div v-else-if="assesLevel == 2" >Marketing</div>
-  <div v-else-if="assesLevel == 3" >user </div>
   <img alt="Vue logo" src="./assets/logo.png">
+  <TheHeader v-show="showHeader"></TheHeader>
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import TheHeader from  './components/TheHeader.vue'
+import TheHeader from './components/TheHeader.vue';
+
+const obj = ()=>{
+  return true
+}
+
 
 export default {
   name: 'App',
@@ -22,16 +20,11 @@ export default {
     TheHeader
   },
   data(){
-  return{
-    showHeader: true,
-    showPara:true,
-    name:"Richard",
-    sobrenome:"Janebo",
-    assesLevel:3,
+    return{
+      showHeader:obj()
+    }
   }
 }
-}
-
 </script>
 
 <style>
