@@ -1,5 +1,4 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
   <TheHeader v-show="showHeader"></TheHeader>
 
   <div v-show="showFirstName">
@@ -15,14 +14,12 @@
 
 
 
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
 
 
 
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import TheHeader from './components/TheHeader.vue';
 
 const obj = ()=>{
@@ -49,7 +46,6 @@ const obj = ()=>{
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     TheHeader
   },
   data(){
