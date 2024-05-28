@@ -1,7 +1,24 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <TheHeader v-show="showHeader"></TheHeader>
+
+  <div v-show="showFirstName">
+    nome: {{ firstName }}
+  </div>
+  <div>
+    
+    sobrenome : {{ lastName }}
+  </div>
+  <div v-if="levelAcess == 'admin' ">Admin</div>
+  <div v-else-if="levelAcess == 'user'">User</div>
+  <div v-else>Visitante</div>
+
+
+
   <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+
+
 </template>
 
 <script>
@@ -9,8 +26,24 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheHeader from './components/TheHeader.vue';
 
 const obj = ()=>{
-  return true
+  let n = "admin"
+  let u = "visitante"
+  let j = "user"
+
+  let mat = 0
+
+  mat=Math.floor(Math.random() * 10)
+  console.log(mat)
+
+  if (mat < 3){
+    return n
+  }else if(mat > 3 && mat <8){
+    return u
+  }else{
+    return j
+  }
 }
+
 
 
 export default {
@@ -21,7 +54,11 @@ export default {
   },
   data(){
     return{
-      showHeader:obj()
+      showHeader:true,
+      firstName:"Richard",
+      lastName:"Gabriel",  
+      showFirstName:true,
+      levelAcess:obj(),
     }
   }
 }
