@@ -1,16 +1,25 @@
 <template>
   <div class="header">
     <div v-for="ele in todos" v-bind:key="ele.id" class="todoItem">
-        <img v-if="ele.vsrc " v-bind:src="ele.vsrc" >
+        <img v-if="ele.vsrc " :src="ele.vsrc" >
       {{ ele.title }}
     </div>
   </div>
-  
+  <h1 :class="{'vermelho':true,'isHomePage':ishome}">
+    ola Bom dia
+  </h1>
+  <p :class="['ficouvermelho',{'ficouBlue':ishome}]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, sint? Accusantium autem inventore a omnis voluptatum dolores, quasi magni tempora dolorum est earum sint tempore libero quia praesentium? Esse, sint.</p>
+  <p :style="{'color':'aqua'}" >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum neque quam animi iste ratione nostrum sunt in ex laborum, quo soluta atque voluptate architecto? Quo dolore tempora sint inventore sunt.
+  </p>
 </template>
 <script>
 export default {
   data() {
     return {
+      text:'ficouBlue',
+      ishome:true,
+      vermelho:'ficouvermelho',
       todos: [
         {
           userId: 1,
@@ -50,6 +59,16 @@ export default {
 };
 </script>
 <style>
+.ficouBlue{
+  color: blue;
+}
+.isHomePage{
+  color: blueviolet;
+  font-size: larger;
+}
+.ficouvermelho{
+  color: red;
+}
 .todoItem {
   background-color: aquamarine;
   margin: 0.2rem;
