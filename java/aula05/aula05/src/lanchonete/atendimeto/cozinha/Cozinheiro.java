@@ -40,8 +40,9 @@ public class Cozinheiro {
 
     
 
-    void pedirIngredientes(Almoxarife meuAmigo){
-        meuAmigo.entregarIngredientes();
+    void pedirIngredientes(Almoxarife almoxarife){
+        almoxarife.entregarIngredientes();
+
     }
     
 }

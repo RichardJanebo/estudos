@@ -1,5 +1,5 @@
 package desafioControleDeFluxo;
-import java.util.Scanner;;
+import java.util.Scanner;
 public class DesafioControleDefluxo {
     public static void main(String[] args) {
         Scanner dataInput = new Scanner(System.in);

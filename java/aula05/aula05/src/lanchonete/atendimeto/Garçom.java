@@ -7,7 +7,7 @@ public class Garçom {
         System.out.println("GAS TROCADO");
     }
 
-    public void pegarLancheNaCozinha(){
+    private void pegarLancheNaCozinha(){
         System.out.println("PENGANDO LANCHE NA COZINHA");
     }
 
@@ -16,6 +16,7 @@ public class Garçom {
     }
 
     public void servindoMesa(){
+        pegarLancheNaCozinha();
         System.out.println("SERVINDO A MESA");
     }
 

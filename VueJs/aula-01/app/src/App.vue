@@ -11,6 +11,7 @@
   <div v-if="levelAcess == 'admin' ">Admin</div>
   <div v-else-if="levelAcess == 'user'">User</div>
   <div v-else>Visitante</div>
+  <TheFooter/>
 
 
 
@@ -20,7 +21,9 @@
 </template>
 
 <script>
+import TheFooter from './components/TheFooter.vue';
 import TheHeader from './components/TheHeader.vue';
+
 
 const obj = ()=>{
   let n = "admin"
@@ -46,7 +49,8 @@ const obj = ()=>{
 export default {
   name: 'App',
   components: {
-    TheHeader
+    TheHeader,
+    TheFooter
   },
   data(){
     return{

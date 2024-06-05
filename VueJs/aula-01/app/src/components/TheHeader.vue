@@ -1,32 +1,39 @@
 <template>
   <div class="header">
     <div v-for="ele in todos" v-bind:key="ele.id" class="todoItem">
-        <img v-if="ele.vsrc " :src="ele.vsrc" >
+      <img v-if="ele.vsrc" :src="ele.vsrc" />
       {{ ele.title }}
     </div>
   </div>
-  <h1 :class="{'vermelho':true,'isHomePage':ishome}">
-    ola Bom dia
-  </h1>
-  <p :class="['ficouvermelho',{'ficouBlue':ishome}]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, sint? Accusantium autem inventore a omnis voluptatum dolores, quasi magni tempora dolorum est earum sint tempore libero quia praesentium? Esse, sint.</p>
-  <p :style="{'color':'aqua'}" >
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum neque quam animi iste ratione nostrum sunt in ex laborum, quo soluta atque voluptate architecto? Quo dolore tempora sint inventore sunt.
+  <p v-for="ele in todos" :key="ele.id" :class="{'ficouBlue':ishome}">
+    {{ ele.title }}
+  </p>
+  <h1 :class="{ vermelho: true, isHomePage: ishome }">ola Bom dia</h1>
+  <p :class="['ficouvermelho', { ficouBlue: ishome }]">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, sint?
+    Accusantium autem inventore a omnis voluptatum dolores, quasi magni tempora
+    dolorum est earum sint tempore libero quia praesentium? Esse, sint.
+  </p>
+  <p :style="{ color: 'aqua' }">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum neque quam
+    animi iste ratione nostrum sunt in ex laborum, quo soluta atque voluptate
+    architecto? Quo dolore tempora sint inventore sunt.
   </p>
 </template>
 <script>
 export default {
   data() {
     return {
-      text:'ficouBlue',
-      ishome:true,
-      vermelho:'ficouvermelho',
+      text: "ficouBlue",
+      ishome: true,
+      vermelho: "ficouvermelho",
       todos: [
         {
           userId: 1,
           id: 1,
           title: "delectus aut autem",
           completed: false,
-          vsrc:"https://preview.redd.it/is-it-me-or-does-tai-lungs-head-looks-more-angular-than-in-v0-7qwjxd6q6asc1.png?width=558&format=png&auto=webp&s=c328e70b9b0d19fb54247ec95907cc841f568fc3"
+          vsrc: "https://preview.redd.it/is-it-me-or-does-tai-lungs-head-looks-more-angular-than-in-v0-7qwjxd6q6asc1.png?width=558&format=png&auto=webp&s=c328e70b9b0d19fb54247ec95907cc841f568fc3",
         },
         {
           userId: 1,
@@ -59,14 +66,14 @@ export default {
 };
 </script>
 <style>
-.ficouBlue{
+.ficouBlue {
   color: blue;
 }
-.isHomePage{
+.isHomePage {
   color: blueviolet;
   font-size: larger;
 }
-.ficouvermelho{
+.ficouvermelho {
   color: red;
 }
 .todoItem {

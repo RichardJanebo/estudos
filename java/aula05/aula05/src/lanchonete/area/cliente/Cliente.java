@@ -10,15 +10,14 @@ public class Cliente {
     }
 
     public void pagarConta(){
+        consultarSaldoAplicativo();
         System.out.println("PAGANDO A CONTA");
     }
 
-    public void consultarSaldoAplicativo(){
+    private void consultarSaldoAplicativo(){
         System.out.println("CONSULTANDO SALDO NO APP");
     }
 
-    public void pegarLancheNoBalcao(){
-        System.out.println("PEGAR LANCHE NO BALCAO");
-    }
+
 
 }
