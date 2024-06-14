@@ -2,7 +2,6 @@ package lanchonete;
 
 import lanchonete.area.cliente.Cliente;
 import lanchonete.atendimeto.Garçom;
-import lanchonete.atendimeto.cozinha.Almoxarife;
 import lanchonete.atendimeto.cozinha.Cozinheiro;
 
 public class Restaurante {

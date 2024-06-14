@@ -1,17 +1,25 @@
 package aula12;
 
+import aula12.apps.FaceboolMenssager;
+import aula12.apps.MsnMenssager;
+import aula12.apps.ServiçoMensagemInstantanea;
+import aula12.apps.Telegram;
+
 public class Pc {
     public static void main(String[] args){
-        FaceboolMenssager faceboolMenssager = new FaceboolMenssager();
+        ServiçoMensagemInstantanea smi = null;
 
-        faceboolMenssager.sendMenssage();
+        String appEscolhido = "msn";
 
-        MsnMenssager menssager = new MsnMenssager();
+        if (appEscolhido.equals("msn")){
+            smi = new MsnMenssager();
+        }else if(appEscolhido.equals("fbm")){
+            smi = new FaceboolMenssager();
+        }else if(appEscolhido.equals("tlg")){
+            smi = new Telegram();
+        }
 
-        menssager.sendMessage();
-
-        Telegram telegram = new Telegram();
-
-        telegram.sendMessage();
+        smi.sendMessage();
+        smi.reciveMessage();
     }
 }

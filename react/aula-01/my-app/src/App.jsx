@@ -14,8 +14,8 @@ class App extends React.Component {
     return (
       <>
         <NavBar/>
-        <Counter/>
-        {/* <section id="articles">
+        
+        <section id="articles">
         <Article title="Designing Dashboards" provider="NASA" description="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud ame" image={nasaImg}/>
 
         <Article title="Vibrant Portraits of 2020" provider="SpaceNews" description="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet." image={vibranteImg}/>
@@ -25,7 +25,7 @@ class App extends React.Component {
         <Article title="Designing Dashboards" provider="NASA" description="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet." image={nasaImg}/>
 
 
-        </section> */}
+        </section>
 
       </>
     );

@@ -6,6 +6,7 @@ public class Almoxarife {
     }
     private void controlarSaida(){
         System.out.println("CONTROLANDO A SAIDA DOS ITENS");
+        controlarEntrada();
     }
 
     void entregarIngredientes(){

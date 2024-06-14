@@ -26,8 +26,5 @@ public class DesafioControleDefluxo {
 
 
     }
-    public static void dataAnalistic(int n1 , int n2){
-        
-
-    }
+    
 }
