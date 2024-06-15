@@ -22,6 +22,7 @@ public class Usuario {
             System.out.print("Digite seu numero de telefone:");
             String numeroTel = entradaDeDados.nextLine();
             cadastro.setTelefone(numeroTel);
+            entradaDeDados.close();
 
             System.out.println("Seu nome é " + cadastro.nome);
             System.out.println("Sua idade é " + cadastro.idade);

@@ -8,6 +8,7 @@ public class DesafioControleDefluxo {
         int numero1 = dataInput.nextInt();
         System.out.println("Agora digite o segundo numero:");
         int numero2 = dataInput.nextInt();
+        dataInput.close();
 
 
         try{
