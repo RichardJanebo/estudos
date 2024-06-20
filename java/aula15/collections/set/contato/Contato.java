@@ -1,5 +1,7 @@
 package aula15.collections.set.contato;
 
+import java.util.Objects;
+
 public class Contato {
     private String nome;
     private int numero;
@@ -21,5 +23,12 @@ public class Contato {
     @Override
     public String toString() {
         return "Nome: " + nome + "\n Numero: " + numero;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(!(obj instanceof Contato contato)) return false;
+        return Objects.equals(getNome(), contato.getNome());
     }
 }

@@ -1,38 +1,42 @@
 package teste09;
 
-public class Produto implements Comparable<Produto> {
+import java.util.Comparator;
+
+public class Produto implements Comparable<Produto>{
     private String nome;
-    private double preco;
+    private int codigo;
 
-    public Produto(String nome,double preco){
-        this.nome= nome;
-        this.preco = preco;
 
+    public Produto(String nome, int codigo){
+        this.nome = nome;
+        this.codigo = codigo;
     }
 
     public String getNome(){
         return nome;
     }
 
-    public double getPreco(){
-        return preco;
+    public int getCodigo(){
+        return codigo;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome + "Codigo " + codigo;
+    }
+
+    public int compareTo(Produto obj){
+        return Integer.compare(codigo, obj.getCodigo());
     }
 
 
-    public String toString(){
-        return "Produto{" +
-        "Nome=" + nome + "-" + "Preço" + preco + "}";
-        
-    }
 
-    public int compareTo(Produto outroProduto) {
-        if (this.preco < outroProduto.preco) {
-            return -1;
-        } else if (this.preco > outroProduto.preco) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
+    
+}
 
+class ComparadorPornome implements Comparator<Produto>{
+    @Override
+    public int compare(Produto produto1, Produto produto2){
+        return Integer.compare(produto1.getCodigo(), produto2.getCodigo());
+    }   
 }
