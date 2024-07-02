@@ -19,6 +19,14 @@ public class Contato {
     public int geNumero(){
         return numero;
     }
+    
+    public void setNumero(int numero){
+        this.numero= numero;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
 
     @Override
     public String toString() {

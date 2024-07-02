@@ -1,31 +1,11 @@
 package teste09;
-import java.util.ArrayList;
-import java.util.List;
-public class Biblioteca {
-    List<Livro> meusLivros;
-    public Biblioteca(){
-        meusLivros = new ArrayList<>();
+public class Biblioteca implements Livro {
+    public void folear(){
+        System.out.println("Folenado o livros");
     }
-
-    public void adicionarLivros(String autor,String titulo){
-        meusLivros.add(new Livro(autor, titulo));
+    public static void main(String[] args) {
+        Biblioteca biblioteca = new Biblioteca();
+        biblioteca.folear();        
     }
-
-    public void exbirLivros(){
-        System.out.println(meusLivros);
-    }
-
-    public List<Livro> pesquisaPorTitulo(String titulo){
-        List<Livro> meusLivrosPorTitulo = new ArrayList<>();
-        for(Livro livro:meusLivros){
-            if(livro.getAutor().equalsIgnoreCase(titulo)){
-                meusLivrosPorTitulo.add(livro);
-            }
-        }
-        return meusLivrosPorTitulo;
-    }
-
-    
-    
     
 }

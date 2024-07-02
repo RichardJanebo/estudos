@@ -12,6 +12,7 @@ public class Conta {
     public Conta(){
         this.agencia = Conta.AGENCIA_PADRAO;
         this.numero = Conta.SEQUENCIAL;
+        this.saldo = 0.0;
     }
 
     
