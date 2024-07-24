@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+header{
+    background-color: #0f3563;
+    
+}
+nav{
+    display: flex;
+    
+}
+
+nav img{
+    width: 200px;
+}
+nav ul{
+    display: flex;
+    
+
+}
+ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#carrossel{
+    box-shadow: 2px 2px 4px black;
+    overflow: hidden;
+}
+#container{
+   
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0);
+}
+#container img{
+    object-fit: cover;
+    max-width: 100vw;
+}
+
+button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor:pointer ;
+}
