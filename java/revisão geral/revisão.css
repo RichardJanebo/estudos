@@ -5,22 +5,30 @@
 }
 header{
     background-color: #0f3563;
+    color: #fff;
+    padding: 1rem;
     
 }
 nav{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     
 }
 
 nav img{
     width: 200px;
 }
-nav ul{
+
+
+nav{
     display: flex;
+    justify-content: space-around;
     
 
 }
-ul li a{
+a{
+    display: flex;
     text-decoration: none;
     color: #fff;
 }
@@ -39,10 +47,24 @@ ul li a{
     object-fit: cover;
     max-width: 100vw;
 }
+#orcamento{
+    background-color:#f77f00;
+    padding: 1rem;
+    border-radius: 5px;
+}
 
 button{
     width: 30px;
     height: 30px;
     border-radius: 50%;
     cursor:pointer ;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+}
+.teste{
+    background-color: #0f3563;
+    padding: 1rem;
+    
 }
