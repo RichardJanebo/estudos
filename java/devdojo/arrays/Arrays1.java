@@ -14,6 +14,8 @@ public class Arrays1 {
             System.out.println(idades[i]);
         }
 
+
+
     }
 
 }

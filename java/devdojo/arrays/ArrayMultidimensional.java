@@ -1,6 +1,6 @@
 package devdojo.arrays;
 
-public class Arrays4 {
+public class ArrayMultidimensional {
     public static void main(String[] args) {
         int [][]dias = new int[3][3];
         dias[0][0] = 31;
