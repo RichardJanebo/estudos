@@ -2,12 +2,13 @@ package devdojo.javacore.Aintroducaoclasses.exercicio.carro;
 
 public class Civic {
     public static void main(String[] args) {
-        Carro civic = new Carro();
-        civic.modelo = "Sedan";
-        civic.ano = 2022;
-        civic.nome = "Civic";
+        Carro carro = new Carro();
+        carro.ano = 2020;
+        carro.modelo ="Sedan";
+        carro.nome = "Corola";
 
-        System.out.println("Modelo " + civic.modelo + " Ano " + civic.ano + " Nome " + civic.nome);
+        System.out.println("--------------");
+        System.out.println(carro.ano);
 
     }
 }
