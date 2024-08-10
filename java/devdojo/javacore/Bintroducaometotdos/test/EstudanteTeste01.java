@@ -1,16 +1,18 @@
 package devdojo.javacore.Bintroducaometotdos.test;
 
-import devdojo.javacore.Bintroducaometotdos.dominio.ClasseTemporaria;
+import devdojo.javacore.Bintroducaometotdos.dominio.Calculadora;
 import devdojo.javacore.Bintroducaometotdos.dominio.Estudante;
-import devdojo.javacore.Bintroducaometotdos.dominio.ImpressoraEstudante;
 
 public class EstudanteTeste01 {
     public static void main(String[] args) {
         Estudante estudante = new Estudante();
         Estudante estudante2 = new Estudante();
 
-        ImpressoraEstudante impressora = new ImpressoraEstudante();
-        ClasseTemporaria classeTemporaria = new ClasseTemporaria();
+        Calculadora calculadora = new Calculadora();
+
+        
+
+        
 
         estudante.setNome("Goku");
         estudante.setIdade(50);
@@ -20,8 +22,8 @@ public class EstudanteTeste01 {
         estudante2.setIdade(32);
         estudante2.setSexo('f');
         
-        classeTemporaria.imprime(estudante);
-        impressora.imprime(estudante2);
+        estudante.imprimir();
+        estudante2.imprimir();
 
 
         

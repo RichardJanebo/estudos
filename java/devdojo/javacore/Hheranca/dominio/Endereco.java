@@ -4,9 +4,10 @@ public class Endereco {
     private String rua;
     private String cep;
 
-   public String imprime(){
-    return "Rua :" + rua +"Cep: " + cep;
-   }
+    public String imprime() {
+        return " Rua : " + rua + " Cep: " + cep;
+        
+    }
 
     public String getRua() {
         return rua;
@@ -23,13 +24,5 @@ public class Endereco {
     public void setCep(String cep) {
         this.cep = cep;
     }
-
-    
-
-
-
-
-
-
 
 }

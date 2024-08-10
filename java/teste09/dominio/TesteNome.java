@@ -1,18 +1,29 @@
 package teste09.dominio;
 
-import javax.annotation.processing.Generated;
 
 
-public class TesteNome {
-
+public class TesteNome extends Escola {
     
-    private long id;
-    private String nome;
+    private String cpf;
+    
+    public TesteNome(String nome, int classses, String cpf){
+        super(nome, classses);
+        this.cpf = cpf;
+        
 
-    protected void imprimirNumeros(){
-        for(int i = 0;i<20;i++){
-            System.out.println(i);
-        }
+    }
+    public void setCpf(String cpf){
+        this.cpf = cpf;
+    }
+
+    public String getCpf(){
+        return cpf;
+    }
+
+    public void imprime(){
+        super.imprime();
+        System.out.println(cpf);
     }
     
+  
 }

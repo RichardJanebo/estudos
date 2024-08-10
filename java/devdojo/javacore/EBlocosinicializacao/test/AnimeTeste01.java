@@ -1,6 +1,6 @@
 package devdojo.javacore.EBlocosinicializacao.test;
 
-import devdojo.javacore.EBlocosinicializacao.doamin.Anime;
+import devdojo.javacore.EBlocosinicializacao.dominio.Anime;
 
 public class AnimeTeste01 {
     public static void main(String[] args) {

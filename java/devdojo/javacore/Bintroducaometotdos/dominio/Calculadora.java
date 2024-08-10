@@ -41,6 +41,35 @@ public class Calculadora {
         
     }
 
+    public void somaArray(int[] numeros){
+        int soma = 0;
+        for(int i: numeros){
+            soma += i;
+        }
+        System.out.println(soma);
+
+    }
+
+    public void concatenador(String[] palavras){
+        String frase = "";
+
+        for(String n: palavras){
+            frase += " " + n;
+        }
+        System.out.println(frase);
+
+    }
+
+    public void somaComVarArgs(String nome, int... numeros){
+        int  n = 0;
+
+        for (int i : numeros) {
+            n += i;
+        }
+        System.out.println(nome + " " + n);
+    }
+
+   
     
 
 

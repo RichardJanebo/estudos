@@ -1,15 +1,13 @@
 package devdojo.javacore.Dconstrutores.test;
 
-import devdojo.javacore.Csobrecargametodos.dominio.Anime;
+import devdojo.javacore.Dconstrutores.dominio.Anime;
 
 public class AnimeTeste01 {
     public static void main(String[] args) {
-        Anime anime = new Anime();
+        Anime anime = new Anime("Akudame Drive", "tv", 23,"Ação","Production IG");
 
-        anime.init("Akudame Drive", "tv", 23);
-
-        anime.init("Akudame Drive", "tv", 23,"Ação");
-        anime.setGenero("Ação");
+        // Anime anime2 = new Anime();
+        // anime2.imprimir();
       
         anime.imprimir();
         

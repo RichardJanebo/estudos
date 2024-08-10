@@ -23,5 +23,14 @@ public class Estudante {
     public void setSexo(char sexo) {
         this.sexo = sexo;
     }
+
+    public void imprimir(){
+        System.out.println("----------------");
+        System.out.println("| Idade: " + getIdade() + "    |");
+        System.out.println("| Nome: " + getNome() + "   |");
+        System.out.println("| Sexo: " +getSexo() + "      |");
+        System.out.println("----------------");
+    }
+    
     
 }

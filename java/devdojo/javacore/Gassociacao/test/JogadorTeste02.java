@@ -5,11 +5,11 @@ import devdojo.javacore.Gassociacao.dominio.Time;
 
 public class JogadorTeste02 {
     public static void main(String[] args) {
-        Jogador jogador = new Jogador("Maradoda");
+        Jogador jogador = new Jogador("Pelé");
         Time time = new Time("Brasil");
         jogador.setTime(time);
         jogador.imprimir();
 
-
+        System.out.println(Jogador.getContadorDeInstancias());
     }
 }

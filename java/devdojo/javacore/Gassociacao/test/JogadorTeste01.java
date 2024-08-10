@@ -11,6 +11,11 @@ public class JogadorTeste01 {
     
         Jogador[] jogadores = new Jogador[]{jogador1,jogador2,jogador3};
 
+        System.out.println( Jogador.getContadorDeInstancias());
+
+        
+
+
         
 
         for(Jogador jogador:jogadores){

@@ -4,9 +4,20 @@ public class Jogador {
     private String nome;
     private Time time;
 
+    private static int contadorDeInstancias = 0;
+
+
+
     public Jogador(String nome){
         this.nome = nome;
+        contadorDeInstancias++;
     }
+
+    public static int getContadorDeInstancias(){
+        return contadorDeInstancias;
+    }
+
+    
 
     public void setNome(String nome){
         this.nome = nome;

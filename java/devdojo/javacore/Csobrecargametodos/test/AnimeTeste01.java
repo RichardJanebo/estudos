@@ -1,6 +1,6 @@
-package devdojo.javacore.Bintroducaometotdos.Csobrecargametodos.test;
+package devdojo.javacore.Csobrecargametodos.test;
 
-import devdojo.javacore.Bintroducaometotdos.Csobrecargametodos.dominio.Anime;
+import devdojo.javacore.Csobrecargametodos.dominio.Anime;
 
 public class AnimeTeste01 {
     public static void main(String[] args) {

@@ -1,11 +1,28 @@
 package devdojo.javacore.Hheranca.dominio;
 
 public class Pessoa {
-    private String nome;
-    private String cpf;
-    private Endereco endereco;
+    protected String nome;
+    protected String cpf;
+    protected Endereco endereco;
 
-    public void imprime(){
+    static {
+        System.out.println("Dentro do bloco estatico de pessoa");
+    }
+
+    {
+        System.out.println("Dentro do bloco de inicialização não estatico 1");
+    }
+
+    {
+        System.out.println("Dentro do bloco de inicialização não estatico 2");
+    }
+
+    public Pessoa(String nome) {
+        System.out.println("Dentro do construtor de pessoa");
+        this.nome = nome;
+    }
+
+    public void imprime() {
         System.out.println("Nome: " + nome);
         System.out.println("Cpf: " + cpf);
         System.out.println("Endereço " + endereco.imprime());
@@ -15,35 +32,24 @@ public class Pessoa {
         return nome;
     }
 
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
 
     public String getCpf() {
         return cpf;
     }
 
-
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
 
     public Endereco getEndereco() {
         return endereco;
     }
 
-
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
-    
-
-
 }
-
-
-

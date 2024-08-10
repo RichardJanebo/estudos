@@ -8,6 +8,7 @@ public class CalculadoraTeste05 {
         funcionario.setNome("Seu Madruga");
         // funcionario.setIdade(0);
         
+        
         funcionario.setSalario(3000,7000,3060,6000,3500);
 
         funcionario.mediaSalarios();
