@@ -5,36 +5,33 @@ public  class Escola {
 
     private String nome;
     private int classes;
+    private String tipo;
 
-    
-    public Escola(String nome, int classses) {
+    public void init(String nome , int classes){
         this.nome = nome;
-        this.classes = classses;
+        this.classes = classes;
     }
 
-    public String toString(){
-        return "nome" + nome;
+    public void init(String nome, int classes, String tipo){
+        this.init(nome, classes);
+        this.tipo = tipo;
+        
     }
+
 
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
     public int getClasses() {
         return classes;
     }
-
     public void setClasses(int classes) {
         this.classes = classes;
     }
 
-    public  void  imprime() {
-        System.out.println(this.nome);
-        System.out.println(this.classes);
-    }
+   
 
 }
