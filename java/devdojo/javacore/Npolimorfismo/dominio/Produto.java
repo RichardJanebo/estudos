@@ -10,18 +10,17 @@ public abstract class Produto implements Taxavel {
     }
 
     @Override
-    public double calcularImposto(){
-        if(this.valor >= 15){
-            this.valor += this.valor * 0.5;
-        }
-        return valor;
-    }
-
-    @Override
     public String toString() {
         return "Produto [nome=" + nome + ", valor=" + valor + "]";
     }
 
-    
+    public String getNome() {
+        return nome;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
 
 }
