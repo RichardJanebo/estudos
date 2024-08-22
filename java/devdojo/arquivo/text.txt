@@ -1,0 +1,2 @@
+Este arquivo esta sendo escrito via terminal
+ Linha 2
