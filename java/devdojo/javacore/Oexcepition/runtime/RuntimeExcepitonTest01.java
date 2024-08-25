@@ -5,11 +5,7 @@ public class RuntimeExcepitonTest01 {
        int [] numeros = {20,3,4};
 
        
-       try {
-        System.out.println(numeros[6]);
-       } catch (Exception e) {
-        System.out.println(e);
-       }
+       System.out.println(numeros[6]);
        
     }
 }

@@ -1,25 +1,21 @@
 package teste09.test;
 
-import teste09.dominio.Cachorro;
-import teste09.dominio.Gato;
-import teste09.dominio.InnerAnimal;
-
 public class Teste {
     public static void main(String[] args) {
-        InnerAnimal cachorro = new Cachorro();
-        cachorro.setNome("bidu");
-        cachorro.setSom("Latido");
+        try{
+            System.out.println(mediaDosNumeros(new int[]{20,30,40,50,60}));
 
-        Gato gato = new Gato();
-        if (gato instanceof Gato) {
-            System.out.println("é uma instancia de gato");
+        }catch(Exception e){
+            e.printStackTrace();
         }
-        gato.setNome("Floco");
-        gato.setSom("Miado");
-        gato.setCor("Marrom");
 
-        gato.verificacaoDeAnimal(gato);
-        cachorro.verificacaoDeAnimal(cachorro);
+    }
 
+    private static int mediaDosNumeros(int [] numeros){
+        int soma = 0;
+        for(int numero:numeros){
+            soma += numero;
+        }
+        return soma / numeros.length;
     }
 }
