@@ -1,5 +1,6 @@
 package devdojo.javacore.Oexcepition.runtime;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -13,22 +14,18 @@ public class RuntimeExcepitonTest04 {
             System.out.println("Dentro doIndexOutOfBoundsException");
         } catch (IllegalArgumentException e) {
             System.out.println("Dentro IllegalAccessException");
-
-        }catch(RuntimeException e){
+        } catch (RuntimeException e) {
             System.out.println("RuntimeException");
         }
 
-
-        try{
+        try {
             maibeThrowsException();
-        }catch(SQLException e){
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
-        }catch(IOException e){
-            e.printStackTrace();
-        }
+        } 
     }
 
-    public static void maibeThrowsException() throws SQLException , IOException{
+    public static void maibeThrowsException() throws SQLException, IOException {
         throw new SQLException();
     }
 }
