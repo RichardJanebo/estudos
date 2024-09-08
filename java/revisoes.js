@@ -1,22 +1,39 @@
-console.time('tempoTotal');
+let filmes = [
+    [
+        {
+        titulo: 'acao',
+        descricao: 'matador'
+        },
+        {
+        titulo: 'acao 2',
+        descricao: 'matadores'
+         }
+    ],
+    [
+        {
+            titulo: 'terror',
+            descricao: "sangrento"
+        }
+    ]
+]
 
-function concatString(tamanho) {
-    const textoMap = new Map();
 
-    for (let i = 0; i < tamanho; i++) {
-        textoMap.set(i, i);
+
+const  pesquisarPorNome =(nome)=>{
+    let armazenaNome ="";
+    for(i = 0;i < filmes.length; i++){
+        filmes[i].map((el,ind)=>{
+            if(nome === el.titulo){
+                armazenaNome = `Nome: ${el.titulo} e indice ${ind}`;            }
+        })
+        
+        
+        i++;
     }
-
-    let resultado = '';
-    textoMap.forEach((value) => {
-        resultado.concat(value)
-    });
-
-    return resultado;
+    console.log(armazenaNome)
 }
 
-let resultado = concatString(100000);  // Número de iterações
+pesquisarPorNome("acao");
 
 
-console.log(resultado);
-console.timeEnd('tempoTotal');
+
