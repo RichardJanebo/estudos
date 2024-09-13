@@ -1,15 +1,17 @@
 package teste09.test;
 
-import java.text.DateFormat;
-import java.util.Calendar;
+import java.time.LocalTime;
 
-public class Teste {
+import teste09.dominio.FinalRevisão01;
+import teste09.dominio.LocalTimeRevisão;
+
+public class Teste extends FinalRevisão01 {
   public static void main(String[] args) {
-    Calendar calendar = Calendar.getInstance();
-    System.out.println(calendar.get(Calendar.YEAR));
-
-    DateFormat dateFormat = DateFormat.getInstance();
-    System.out.println(dateFormat.format(calendar.YEAR));
-  }    
+    
+    LocalTimeRevisão localTimeRevisão = new LocalTimeRevisão();
+    
+  
+    localTimeRevisão.imprimeLocal();
+  }
 
 }

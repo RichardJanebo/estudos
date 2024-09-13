@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class LocalTimeTeste01 {
     public static void main(String[] args) {
         LocalTime localTime = LocalTime.now();
-        System.out.println(localTime.getHour());
+        System.out.println(localTime);
         System.out.println(localTime.getMinute());
 
         ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
