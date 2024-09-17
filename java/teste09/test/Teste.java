@@ -1,70 +1,61 @@
 package teste09.test;
 
-import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Calendar;
-import java.util.Scanner;
+import java.time.temporal.ChronoUnit;
 
+public class Teste {
 
-import teste09.dominio.FinalRevisão01;
-import teste09.dominio.MinhaExcecaoCustomizada;
-
-public class Teste extends FinalRevisão01 {
   public static void main(String[] args) {
-    LocalTime localTime = LocalTime.now();
-    LocalTime localTime2 = LocalTime.of(20, 23, 20);
 
-    System.out.println(localTime);
-    System.out.println(localTime2);
+    int arreyTeste [] = new int[]{10,20,30};
 
-    System.out.println(localTime.getHour());
+    for (int i : arreyTeste) {
+      System.out.println(i);
+    }
+
 
     LocalDate localDate = LocalDate.now();
 
-    System.out.println(localDate.getYear());
+    System.out.println(localDate);
 
-    byte nByte = 10;
-    int nInt = nByte;
 
-    System.out.println(nInt);
+    ChronoUnit chronoUnit = ChronoUnit.DAYS;
 
-    long nLong = 305084515;
+    System.out.println(chronoUnit.between(localDate, localDate.plusDays(10)));
 
-    nInt = (int) nLong;
 
-    System.out.println(nInt);
+    LocalTime localTime = LocalTime.now();
 
-    Duration duration = Duration.between(localTime, localTime2);
-    System.out.println(duration);
+    System.out.println("Local Time" + localTime);
 
-    // Wrappers
-    Integer newInteger = 10;
-    nInt = newInteger;
+    LocalDateTime localDateTime = LocalDateTime.now();
+    System.out.println(localDateTime);
 
-    System.out.println(nInt);
 
-    Instant instant = Instant.now();
-    System.out.println(instant + " cas");
+  
 
-    try (Scanner scanner = new Scanner(System.in)) {
-      System.out.println("Digite seu nome");
-      String nome = scanner.nextLine();
-      if(nome.equalsIgnoreCase("Richard")){
-        throw new MinhaExcecaoCustomizada();
-      }
-      System.out.println("Bom dia " + nome);
-    } catch (MinhaExcecaoCustomizada e) {
-      e.printStackTrace();
-    }
 
-    Calendar calendar = Calendar.getInstance();
 
-    System.out.println(calendar.get(Calendar.DAY_OF_WEEK_IN_MONTH));
 
-    System.out.println(localDate.getMonthValue());
+    // try{
+    //   throw new ArrayIndexOutOfBoundsException();
+    // }catch(ArrayIndexOutOfBoundsException e){
+    //   e.printStackTrace();
+    // }catch(IndexOutOfBoundsException e){
+    //   e.printStackTrace();
+    // }catch(RuntimeException e){
+    //   e.printStackTrace();
+    //   System.out.println("Dentro do Runtime");
+    // }finally{
+    //   System.out.println("Dentro do finaly");
+    // }
+
+
+
+
 
   }
-
 }
