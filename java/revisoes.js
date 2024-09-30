@@ -1,9 +1,12 @@
-let arrayTest = [10,25,68,12,24,33,13,55,7,17 ];
+function pularAnuncio() {
+    let botaoPular = document.querySelector('.ytp-skip-ad-button');
 
-arrayTest = arrayTest.filter((el)=>{
-    if(el > 18){
-        return el;
+    if (botaoPular && botaoPular.style.display !== 'none') {
+        botaoPular.click();
+        console.log("Anúncio pulado!");
+    } else {
+        console.log("Botão de pular ainda não disponível.");
     }
-});
+}
 
-console.log(Math.pow(2,3))
+setInterval(pularAnuncio, 1000);

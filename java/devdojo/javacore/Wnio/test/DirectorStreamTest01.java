@@ -1,4 +1,4 @@
-package devdojo.javacore.Vio.test;
+package devdojo.javacore.Wnio.test;
 
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -8,8 +8,11 @@ import java.util.Scanner;
 
 public class DirectorStreamTest01 {
     public static void main(String[] args) {
-        Path path = Paths.get("C:\\Users\\richa\\Documents\\Estudos\\Java\\devdojo");
-        try (DirectoryStream<Path> stream = new Scanner(System.in)) {
+        Path path = Paths.get("");
+        try (DirectoryStream<Path> stream =Files.newDirectoryStream(path)) {
+            for(Path path2:stream){
+                System.out.println(path2.getFileName());
+            }
             
 
 

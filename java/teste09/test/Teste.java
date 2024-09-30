@@ -1,61 +1,52 @@
 package teste09.test;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Teste {
+    public static void main(String[] args) {
+        double temperatura = 1;
 
-  public static void main(String[] args) {
+        if (temperatura <= 20 && temperatura >= 1) {
+            System.out.println((temperatura - 20) / (20 - 1));
+        }
 
-    int arreyTeste [] = new int[]{10,20,30};
+        // returnExemple("luffy@hotmail.com, 123jotaro@gmail.com, #zoro@email.com,
+        // teste@gmail.com.br, sakura@email");
+        InnerTeste innerTeste = new InnerTeste();
 
-    for (int i : arreyTeste) {
-      System.out.println(i);
+        File file = new File("C:\\Users\\richa\\Documents\\Estudos\\Java\\texto.txt");
+        System.out.println(innerTeste instanceof InnerTeste);
+        innerTeste.testeBuffer(file);
+
     }
 
+    // public static void returnExemple(String texto) {
+    // Pattern pattern =
+    // Pattern.compile("([a-z-A-Z0-9])+@([a-zA-Z0-9])+([\\.|a-zA-Z0-9])*");
+    // Matcher matcher = pattern.matcher(texto);
 
-    LocalDate localDate = LocalDate.now();
-
-    System.out.println(localDate);
-
-
-    ChronoUnit chronoUnit = ChronoUnit.DAYS;
-
-    System.out.println(chronoUnit.between(localDate, localDate.plusDays(10)));
-
-
-    LocalTime localTime = LocalTime.now();
-
-    System.out.println("Local Time" + localTime);
-
-    LocalDateTime localDateTime = LocalDateTime.now();
-    System.out.println(localDateTime);
-
-
-  
-
-
-
-
-    // try{
-    //   throw new ArrayIndexOutOfBoundsException();
-    // }catch(ArrayIndexOutOfBoundsException e){
-    //   e.printStackTrace();
-    // }catch(IndexOutOfBoundsException e){
-    //   e.printStackTrace();
-    // }catch(RuntimeException e){
-    //   e.printStackTrace();
-    //   System.out.println("Dentro do Runtime");
-    // }finally{
-    //   System.out.println("Dentro do finaly");
     // }
 
+}
 
+class InnerTeste {
+    public void testeBuffer(File textoString) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(textoString))) {
+            String linha = "";
 
+            while ((linha = bufferedReader.readLine()) != null) {
+                System.out.println(linha);
+            }
+            System.out.println("teste");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-
-  }
 }
