@@ -1,12 +1,4 @@
-function pularAnuncio() {
-    let botaoPular = document.querySelector('.ytp-skip-ad-button');
-
-    if (botaoPular && botaoPular.style.display !== 'none') {
-        botaoPular.click();
-        console.log("Anúncio pulado!");
-    } else {
-        console.log("Botão de pular ainda não disponível.");
-    }
-}
-
-setInterval(pularAnuncio, 1000);
+const numeros = [10,30,368,65,6295,6];
+numeros.map((el)=>{
+    console.log(el)
+})

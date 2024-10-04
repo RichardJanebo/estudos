@@ -4,12 +4,14 @@ import devdojo.javacore.Ycolecoes.dominio.SmartPhoone;
 
 public class EqualsTeste01 {
     public static void main(String[] args) {
-        SmartPhoone smartPhoone1 = new SmartPhoone("1AB2", "Iphone");
-        SmartPhoone smartPhoone2 =  new SmartPhoone("1AB2", "Iphone");
+        SmartPhoone smartPhoon1 = new SmartPhoone("Motorola", "AB36dGS");
+        SmartPhoone smartPhoon2 = new SmartPhoone("Motorola", "AB36GS");
 
-        System.out.println(smartPhoone1.equals(smartPhoone2));
-        System.out.println(smartPhoone1.getClass());
-        System.out.println(smartPhoone2.getClass());
+
+        System.out.println(smartPhoon1.equals(smartPhoon2));
+        System.out.println(smartPhoon1.hashCode());
+
+         
 
     }
 
