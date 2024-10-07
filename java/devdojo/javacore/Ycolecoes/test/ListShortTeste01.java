@@ -1,6 +1,7 @@
 package devdojo.javacore.Ycolecoes.test;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,24 +17,17 @@ public class ListShortTeste01 {
         Collections.sort(mangas);
 
         List<Double> dindin = new ArrayList<>();
-        dindin.add(6.0);
+        dindin.add(6D);
         dindin.add(8.6);
         dindin.add(9.6);
         dindin.add(5.1);
         dindin.add(9.7);
 
-
-
-
-
-        // for(String manga : mangas){
-        //     System.out.println(manga);
-        // }
-
         Collections.sort(dindin);
 
-        for(Double din : dindin){
-            System.out.println(din);
+        for (Double double1 : dindin) {
+            System.out.println(double1);
         }
+
     }
 }

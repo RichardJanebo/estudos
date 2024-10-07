@@ -19,7 +19,6 @@ public class SmatPhoneListTeste01 {
         smartPhoones.add(0,smartPhoone1);
 
 
-
         for(SmartPhoone smartPhoone : smartPhoones){
             System.out.println(smartPhoone);
         }

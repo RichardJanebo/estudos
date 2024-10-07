@@ -92,8 +92,11 @@ public class Manga implements Comparable<Manga>{
 
 
     @Override
-    public int compareTo(Manga o) {
-        return 0;
+    public int compareTo(Manga outroManga) {
+        //negativo se o this for menor que outro manga
+        //se this for igual a o outro objeto voce retorna zero
+        //Se o this for menor que o outro objeto retorna 1
+        return this.nome.compareTo(outroManga.getNome());
     }
 
 

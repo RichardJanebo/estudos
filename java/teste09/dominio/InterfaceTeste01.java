@@ -1,12 +1,20 @@
 package teste09.dominio;
 
-public interface InterfaceTeste01 {
-    String NOME = "Richard";
+public class InterfaceTeste01  extends ClasseComConstrutor01{
+    private int numero ;
+    private long id;
 
-    void metodo();
+    public InterfaceTeste01(String nome, int numero){
+        super( nome);
+        this.numero = numero;
 
-    default void returnHelloWord(){
-        System.out.println( "Hello word");
+    }
+
+    public InterfaceTeste01(String nome, int numero, long id){
+        this(nome, numero);
+        this.id = id;
     }
     
-}
+} 
+    
+
