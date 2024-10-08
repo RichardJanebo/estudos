@@ -1,4 +1,4 @@
-package devdojo.javacore.Ycolecoes.test;
+package devdojo.javacore.Ycolecoes.dominio;
 
 import java.util.Objects;
 
@@ -6,6 +6,7 @@ public class Manga implements Comparable<Manga>{
     private Long id;
     private String nome;
     private double preco;
+    private int quantidade;
 
 
     public Manga(long id, String nome, double preco){
@@ -17,9 +18,20 @@ public class Manga implements Comparable<Manga>{
     }
 
 
+    
+
+
+    public Manga(Long id, String nome, double preco, int quantidade) {
+        this(id, nome, preco);
+        this.quantidade = quantidade;
+    }
+
+
+
     public Long getId() {
         return id;
     }
+    
 
 
     public void setId(Long id) {
@@ -49,45 +61,28 @@ public class Manga implements Comparable<Manga>{
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-        long temp;
-        temp = Double.doubleToLongBits(preco);
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        return result;
+        return Objects.hash(id,nome);
     }
 
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if(this == obj){
             return true;
-        if (obj == null)
+        }
+        if(obj == null || this.getClass() != obj.getClass()){
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Manga other = (Manga) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        if (nome == null) {
-            if (other.nome != null)
-                return false;
-        } else if (!nome.equals(other.nome))
-            return false;
-        if (Double.doubleToLongBits(preco) != Double.doubleToLongBits(other.preco))
-            return false;
-        return true;
+        }
+        Manga manga = (Manga) obj;
+        return this.getNome().equals(manga.getNome()) &&  this.getId().equals(manga.getId());
+            
+        
     }
 
 
     @Override
     public String toString() {
-       return "Id: " + id + " Nome: " + nome + " Preço: " + preco;
+       return "Id: " + id + " Nome: " + nome + " Preço: " + preco + "Quantidade " + quantidade;
     }
 
 
@@ -97,6 +92,22 @@ public class Manga implements Comparable<Manga>{
         //se this for igual a o outro objeto voce retorna zero
         //Se o this for menor que o outro objeto retorna 1
         return this.nome.compareTo(outroManga.getNome());
+    }
+
+
+
+
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+
+
+
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
 

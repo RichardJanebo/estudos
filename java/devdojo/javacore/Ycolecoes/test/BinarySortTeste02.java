@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import devdojo.javacore.Ycolecoes.dominio.Manga;
+
 public class BinarySortTeste02 {
     public static void main(String[] args) {
         List<Manga> mangas = new ArrayList<>(6);
