@@ -11,5 +11,11 @@ public class Barco {
     public String toString() {
         return "Nome  " + nome;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    
     
 }

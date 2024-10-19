@@ -1,8 +1,9 @@
 package teste09.dominio;
 
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Produto  implements Comparable<Produto>{
+public class Produto<T>  implements Comparable<Produto>{
     private String nome;
     private Double preco;
     private Long id;
@@ -31,6 +32,21 @@ public class Produto  implements Comparable<Produto>{
 
     public Long getId(){
         return id;
+    }
+
+    private List<T> listaDeProdutosusados;
+
+    public void setLista(List<T> listaDeProdutosusados){
+        this.listaDeProdutosusados = listaDeProdutosusados;
+        usandoProduto(listaDeProdutosusados);
+    }
+
+
+
+    public void usandoProduto(List<T> lista){
+        for (T t : lista) {
+            System.out.println(t);
+        }
     }
 
 

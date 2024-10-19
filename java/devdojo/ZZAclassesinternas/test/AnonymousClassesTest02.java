@@ -1,4 +1,4 @@
-package devdojo.ZZclassesinternas.test;
+package devdojo.ZZAclassesinternas.test;
 
 import java.util.ArrayList;
 import java.util.Comparator;

@@ -7,6 +7,7 @@ public class Produto  implements Comparable<Produto>{
     private int codigo;
     private double preco;
     private int quantidade;
+    public Object usandoProduto;
 
     public Produto(String nome, int codigo, double preco, int quantidade) {
         this.nome = nome;

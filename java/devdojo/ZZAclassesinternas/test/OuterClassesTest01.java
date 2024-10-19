@@ -1,4 +1,4 @@
-package devdojo.ZZclassesinternas.test;
+package devdojo.ZZAclassesinternas.test;
 
 public class OuterClassesTest01 {
     private String name = "Monkey D. Luffy";

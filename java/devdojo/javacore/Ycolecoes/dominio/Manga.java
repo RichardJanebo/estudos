@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Manga implements Comparable<Manga>{
     private Long id;
     private String nome;
-    private double preco;
+    private Double preco;
     private int quantidade;
 
 
@@ -49,7 +49,7 @@ public class Manga implements Comparable<Manga>{
     }
 
 
-    public double getPreco() {
+    public Double getPreco() {
         return preco;
     }
 

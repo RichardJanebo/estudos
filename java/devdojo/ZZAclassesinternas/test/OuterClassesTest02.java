@@ -1,11 +1,12 @@
-package devdojo.ZZclassesinternas.test;
+package devdojo.ZZAclassesinternas.test;
 
 public class OuterClassesTest02 {
 
     private String name = "Midorya";
 
     void print() {
-        final String lastName = "Izuku";
+        final
+         String lastName = "Izuku";
         class LocalClass {
             public void printLocal() {
                 System.out.println(name + " " + lastName);

@@ -2,7 +2,7 @@ package devdojo.javacore.Ycolecoes.dominio;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Consumidor {
+public class Consumidor implements Comparable<Consumidor> {
     private  Long id;
     private String nome;
 
@@ -39,6 +39,12 @@ public class Consumidor {
 
     public String getNome() {
         return nome;
+    }
+
+
+    @Override
+    public int compareTo(Consumidor o) {
+        return this.getNome().compareTo(o.getNome());
     }
 
 
