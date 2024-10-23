@@ -15,7 +15,7 @@ public class MetodoReferenceTest02 {
 
         // animeList.sort(animeComparator::compareByTitleNonStatic);
 
-        animeList.sort((a1,a2)-> animeComparator.compareByTitleNonStatic(a1, a2));
+        animeList.sort((a1,a2) -> animeComparator.compareByTitleNonStatic(a1, a2));
 
 
 

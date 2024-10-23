@@ -14,12 +14,7 @@ public class ComportamentoPorParametroTeste02 {
     public static void main(String[] args) {
 
         int ano = 10;
-        List<Car> greenCars = filter(cars, new Predicate<Car>() {
-            @Override
-            public boolean test(Car car) {
-                return car.getColor().equals("Green");
-            }
-        }); 
+        List<Car> greenCars = filter(cars, car -> car.getColor().equals("Green")); 
 
             
             
