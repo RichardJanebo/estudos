@@ -22,4 +22,23 @@ public class LightNovel {
         return "LightNovel [title=" + title + ", price=" + price + "]";
     }
 
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o){
+            return true;
+        }
+        if (o == null || this.getClass() != o.getClass()) {
+            return false;
+        }
+
+        LightNovel lightNovel = (LightNovel) o;
+        return this.getTitle().equals(lightNovel.getTitle());
+    }
+
+    @Override
+    public int hashCode(){
+        return this.getTitle().hashCode();
+    }
+
 }
