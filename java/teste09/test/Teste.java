@@ -10,28 +10,17 @@ import java.util.stream.Stream;
 import teste09.dominio.Produto;
 
 public class Teste {
-    private static List<List<String>> nomes = new ArrayList<>(List.of(List.of("Alice","Bob","Harrison","Felipe","Taumaturgo"), List.of("Anael","Lucas","Ludimila","Fernanda")));
-    
-
+    private static List<List<String>> nomes = new ArrayList<>(
+            List.of(List.of("Alice", "Bob", "Harrison", "Felipe", "Taumaturgo"),
+                    List.of("Anael", "Lucas", "aLudimila", "Fernanda")));
 
     public static void main(String[] args) {
+        List<String> nomesComA = nomes.stream()
+                .flatMap(List::stream)
+                .filter(nome -> nome.startsWith("a") || nome.startsWith("A"))
+                .collect(Collectors.toList());
 
-        List<Stream<String>> lStrings = nomes.stream()
-            .map(e -> e.stream())
-            .collect(Collectors.toList());
+        System.out.println(nomesComA);
+    }
 
-
-
-        List<String> listWithFlatMap = nomes.stream()
-            .flatMap(e -> e.stream())
-            .map(e -> e.split(""))
-            .flatMap(e -> Arrays.stream(e))
-            .collect(Collectors.toList());
-
-        System.out.println(listWithFlatMap);
-
-       
-
-        }
-    
 }
