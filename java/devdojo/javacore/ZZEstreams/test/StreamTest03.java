@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 import devdojo.javacore.ZZEstreams.dominio.LightNovel;
 
-public class StreamsTest03 {
+public class StreamTest03 {
     private static List<LightNovel> listlLightNovels = new ArrayList<>(List.of(
             new LightNovel("Tensei Shittara", 8.99),
             new LightNovel("OverLord", 3.99),

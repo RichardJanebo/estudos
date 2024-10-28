@@ -1,0 +1,4 @@
+Ola bom dia
+Java é uma linguagem boa
+python tabém 
+C# é bem parecido com Java
