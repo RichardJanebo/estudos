@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import devdojo.javacore.ZZEstreams.dominio.LightNovel;
 
-public class StreamTes11 {
+public class StreamTest11 {
     private static List<LightNovel> listlLightNovels = new ArrayList<>(List.of(
             new LightNovel("Tensei Shittara", 8.99),
             new LightNovel("OverLord", 3.99),

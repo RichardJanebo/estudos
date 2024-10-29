@@ -18,6 +18,11 @@ public class LightNovel {
         this.category = category;
     }
 
+   
+
+    
+
+
     public String getTitle() {
         return title;
     }
@@ -26,9 +31,11 @@ public class LightNovel {
         return price;
     }
 
+    
+
     @Override
     public String toString() {
-        return "LightNovel [title=" + title + ", price=" + price + " Categoria " + category ;
+        return "Titulo: " + title + " Preço: " + price + " Categoria: " + category + "\n" ;
     }
 
 
@@ -49,5 +56,28 @@ public class LightNovel {
     public int hashCode(){
         return this.getTitle().hashCode();
     }
+
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+
+    public Category getCategory() {
+        return category;
+    }
+
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+
+   
 
 }
