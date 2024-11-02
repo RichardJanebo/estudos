@@ -2,30 +2,40 @@ package teste09.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.DoubleSummaryStatistics;
-import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import teste09.dominio.Produto;
 
 public class Teste {
-    private static List<Produto> produtos = new ArrayList<>(
-            List.of(new Produto<>("Arroez", null), new Produto<>("Feijão", null), new Produto<>("Batata", null)));
 
     public static void main(String[] args) {
+        List<Integer> numeros = new ArrayList<>(List.of(1,2,4,8,16,24,48,86));
+        String inscrevase = "Inscreva-se no canal";
+        String[] arrayinscrevase = inscrevase.split("");
+        List<String> arrays = Arrays.asList(arrayinscrevase);
 
-        Optional<Produto> test1 = produtos.stream()
-            .filter(e -> e.getNome().equals("Arroz"))
-            .findFirst();
-                    
 
-        System.out.println("-----------------");
+        Optional<Integer> reduce =numeros.stream()
+            .reduce((n1,n2) -> n1 + n2);
 
-        System.out.println(test1.isPresent() ? "Vazio":test1);
+
+
+
+        System.out.println(reduce);
+
+        System.out.println("-------------------");
+
+        Optional<String> stringREduce = arrays.stream()
+            .reduce((a1,a2) -> a1.concat(a2));
+
+
+        System.out.println(stringREduce);
+
+        System.out.println("--------------------");
+        Integer reduce01 =numeros.stream()
+            .reduce(0,(n1,n2) -> n1 + n2);
+
+        System.out.println(reduce01);;
+
         
     }
 
