@@ -1,42 +1,43 @@
 package teste09.test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import teste09.dominio.Conta;
 
-public class Teste {
+public class Teste implements Runnable {
+
+    private static Conta conta = new Conta();
 
     public static void main(String[] args) {
-        List<Integer> numeros = new ArrayList<>(List.of(1,2,4,8,16,24,48,86));
-        String inscrevase = "Inscreva-se no canal";
-        String[] arrayinscrevase = inscrevase.split("");
-        List<String> arrays = Arrays.asList(arrayinscrevase);
+        Teste teste = new Teste();
 
+        Thread t1 = new Thread(teste, "Maria");
+        Thread t2 = new Thread(teste, "Alex");
 
-        Optional<Integer> reduce =numeros.stream()
-            .reduce((n1,n2) -> n1 + n2);
+        t1.start();
+        t2.start();
 
+    }
 
+    @Override
+    public void run() {
+        usandoConta(100);
+    }
 
+    private static synchronized  void usandoConta(int valor) {
+        if (conta.getSaldo() >= valor) {
+            for (int i = 0; i < 10; i++) {
 
-        System.out.println(reduce);
+                System.out.println(getCurrentThread() + " Sacando Diinheiro");
+                System.out.println("--------------------------");
+                conta.sacar(valor);
+                System.out.println(getCurrentThread() + "Saldo restante: " + conta.getSaldo());
+            }
+        } else {
+            System.out.println("Saldo insulficiente " + conta.getSaldo());
+        }
+    }
 
-        System.out.println("-------------------");
-
-        Optional<String> stringREduce = arrays.stream()
-            .reduce((a1,a2) -> a1.concat(a2));
-
-
-        System.out.println(stringREduce);
-
-        System.out.println("--------------------");
-        Integer reduce01 =numeros.stream()
-            .reduce(0,(n1,n2) -> n1 + n2);
-
-        System.out.println(reduce01);;
-
-        
+    private static String getCurrentThread() {
+        return Thread.currentThread().getName();
     }
 
 }

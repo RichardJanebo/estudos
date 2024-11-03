@@ -1,10 +1,10 @@
 package devdojo.javacore.ZZFthreads.test;
 
 
-class Innerthreadtest01 extends Thread {
+class Innerthreadtest011 extends Thread {
     private char c;
 
-    public Innerthreadtest01(char c){
+    public Innerthreadtest011(char c){
         this.c =c;
     }
 
@@ -25,10 +25,10 @@ class Innerthreadtest01 extends Thread {
 //Daemon X User
 public class threadtest01 {
     public static void main(String[] args) {
-            Innerthreadtest01 innerthreadtest01 = new Innerthreadtest01('A');
-            Innerthreadtest01 innerthreadtest02 = new Innerthreadtest01('B');
-            Innerthreadtest01 innerthreadtest03 = new Innerthreadtest01('C');
-            Innerthreadtest01 innerthreadtest04 = new Innerthreadtest01('D');
+            Innerthreadtest011 innerthreadtest01 = new Innerthreadtest011('A');
+            Innerthreadtest011 innerthreadtest02 = new Innerthreadtest011('B');
+            Innerthreadtest011 innerthreadtest03 = new Innerthreadtest011('C');
+            Innerthreadtest011 innerthreadtest04 = new Innerthreadtest011('D');
 
             innerthreadtest01.start();
             innerthreadtest02.start();
