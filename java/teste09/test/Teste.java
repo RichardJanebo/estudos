@@ -1,37 +1,62 @@
 package teste09.test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class Teste {
-    public static void main(String[] args) {
-        System.out.println(minChanges("1001"));
 
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+       Path path = Paths.get("");
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
+        Runnable runnable = ()->{
+            try {
+                leitorDePdf(path);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        };
+
+       Future<?> future = executorService.submit(runnable);
+
+       future.get();
+       
+       System.out.println("Testando");
+
+       executorService.shutdown();
+       
+
+       
     }
 
-    public static int minChanges(String s) {
-        int st1 = -1;
-        int st2 = -1;
-        int iteration = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (st1 ==  -1) {
-                st1 = s.charAt(i);
-            } else {
-                st2 = s.charAt(i);
+    public static void leitorDePdf(Path path) throws InterruptedException{
+        File file = path.toFile();
 
-                if (st1 == st2) {
-                    st1 = -1;
-                    st2 = -1;
-                } else {
-                    st2 = st1;
-                    iteration += 1;
-                    st1 = -1;
-                    st2 = -1;
+       
+        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+        executorService.schedule(()->{
+            String leitor;
+            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+                while ((leitor = bufferedReader.readLine()) != null) {
+                    System.out.println(leitor);
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
-        return iteration;
+        }, 2, TimeUnit.SECONDS);
+        
+        executorService.shutdown();
+        executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
+
+
 
     }
 
