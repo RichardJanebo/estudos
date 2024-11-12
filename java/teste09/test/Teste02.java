@@ -1,48 +1,28 @@
 package teste09.test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.concurrent.CompletableFuture;
 
 public class Teste02 {
-    private static ExecutorService pool = Executors.newFixedThreadPool(10);
+    public static void main(String[] args) {
+        HttpClient httpClient = HttpClient.newHttpClient();
 
-    private static Callable<String> getData(final int index, final int time){
-        return new Callable<String>() {
+        HttpRequest httpRequest = HttpRequest.newBuilder()
+            .uri(URI.create("https://api.adviceslip.com/advice"))
+            .build();
 
-            @Override
-            public String call() throws Exception {
-                Thread.sleep(time);
-                System.out.println(Thread.currentThread().getName());
-                return "Teste " + index; 
-            }
-            
-        };
-    }
-
-    
-
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
-        System.out.println("Processors = "+ Runtime.getRuntime().availableProcessors());
-        long start = System.nanoTime();
-        Callable<String> c1 = getData(0, 5000);
-        Callable<String> c2 = getData(1, 5000);
-        Future<String> f1 = pool.submit(c1);
-        Future<String> f2 = pool.submit(c2);
-        System.out.println(f1.get());
-        System.out.println(f2.get());
-        long end = System.nanoTime();
-
-        System.out.println("Tempo Corrido (segundos) = " + ((end - start)/1.0E9));
-        pool.shutdown();
-
-        
+        CompletableFuture<HttpResponse<String>> response = httpClient.sendAsync(httpRequest, HttpResponse.BodyHandlers.ofString());
+        response.thenApply(HttpResponse::body)
+            .thenAccept(responseBody -> {
+                System.out.println(responseBody);
+            })
+            .exceptionally(ex -> {
+                System.err.println("Erro: " + ex.getMessage());
+                return null;
+            })
+            .join();  // Aguarda o término da requisição
     }
 }
