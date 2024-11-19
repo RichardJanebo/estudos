@@ -1,39 +1,46 @@
 package com.devdojo.javacore.ZZIjdbc.com;
 
-import java.sql.Connection;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
-interface ExecutorServiceT{
-    void dzerOi();
-}
-
-class ThreadPoolExecutors implements ExecutorServiceT{
-
-    @Override
-    public void dzerOi() {
-        System.out.println("Metodo Concreto que dentro de uma classe que implementa executorService");
-    }
-    
-}
-
-class Executorss {
-    public static ThreadPoolExecutors newFixedThreadPoolt(){
-        return new ThreadPoolExecutors();
-    }
-
-}
-
 public class conectionFactory {
+
     public static void main(String[] args) {
-        ExecutorServiceT executorServiceT = Executorss.newFixedThreadPoolt();
-        executorServiceT.dzerOi();
+        System.out.println("Programa rodando normalmente");
 
-        ThreadPoolExecutors threadPoolExecutors = new ThreadPoolExecutors();
-        threadPoolExecutors.dzerOi();
+        ExecutorService executor = Executors.newCachedThreadPool();
 
+        HttpClient httpClient = HttpClient.newHttpClient();
 
-        ExecutorService executorService = Executors.newFixedThreadPool(0);
+        HttpRequest httpRequest = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create("https://api.adviceslip.com/advice"))
+                .build();
+
+        CompletableFuture<HttpResponse<String>> resposta = CompletableFuture.supplyAsync(() -> {
+            try {
+                return httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            } catch (Exception e) {
+                throw new RuntimeException("Falha na requisição", e);
+            }
+        }, executor);
+
+        resposta.thenAccept(response -> {
+            System.out.println("Requisição feita com sucesso.");
+            System.out.println("Status: " + response.statusCode());
+            System.out.println("Corpo da requisição: " + response.body());
+        }).exceptionally(exe -> {
+            exe.printStackTrace();
+            return null;
+        });
+
+        executor.shutdown();
+
     }
+
 }
