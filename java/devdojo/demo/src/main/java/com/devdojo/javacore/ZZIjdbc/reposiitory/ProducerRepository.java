@@ -1,6 +1,7 @@
 package com.devdojo.javacore.ZZIjdbc.reposiitory;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -39,14 +40,24 @@ public class ProducerRepository {
     }
 
     public static void update(Producer producer) {
-        String sql = "update `producer` set `name` = ('%s')  where `id`= 1".formatted(producer.getName());
+
         try (Connection conn = ConectionFactory.getConnection();
-                Statement statement = conn.createStatement()) {
-            int executeUpdate = statement.executeUpdate(sql);
+                PreparedStatement statement = createPrepareSataStatementUpdate(conn, producer)) {
+            int executeUpdate = statement.executeUpdate();
             log.info("Database rowns affected '{}'", executeUpdate);
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
+    }
+
+    private static PreparedStatement createPrepareSataStatementUpdate(Connection connection, Producer producer)
+            throws SQLException {
+        String sql = "update `producer` set `name` = ?  where `id`= ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, producer.getName());
+        preparedStatement.setInt(2, producer.getId());
+        return preparedStatement;
+
     }
 
     public static List<Producer> findAll() {
@@ -72,7 +83,7 @@ public class ProducerRepository {
 
     public static List<Producer> findByName(String name) {
         String sql = "select * from producer where name like '%s'"
-        .formatted("%"+ name + "%");
+                .formatted("%" + name + "%");
         List<Producer> producers = new ArrayList<>();
         try (Connection con = ConectionFactory.getConnection();
                 Statement statement = con.createStatement();
@@ -90,5 +101,35 @@ public class ProducerRepository {
             log.error("Error while trying to find all producers", e);
             return producers;
         }
+    }
+
+    public static List<Producer> findByNamePreaparedStatement(String name) {
+        String sql = "select * from producer where name like ?";
+        List<Producer> producers = new ArrayList<>();
+        try (Connection con = ConectionFactory.getConnection();
+                PreparedStatement statement = createPrepareSataStatementByNAme(con, sql, name);
+                ResultSet rs = statement.executeQuery();) {
+
+            while (rs.next()) {
+                Producer producer = Producer.builder()
+                        .id(rs.getInt("id"))
+                        .name(rs.getString("name"))
+                        .build();
+                producers.add(producer);
+            }
+            return producers;
+
+        } catch (SQLException e) {
+            log.error("Error while trying to find all producers", e);
+            return producers;
+        }
+    }
+
+    private static PreparedStatement createPrepareSataStatementByNAme(Connection connection, String sql, String nome)
+            throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, nome);
+        return preparedStatement;
+
     }
 }

@@ -12,37 +12,23 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.devdojo.javacore.ZZIjdbc.model.Producer;
-import com.devdojo.javacore.ZZIjdbc.reposiitory.ProducerRepository;
 import com.devdojo.javacore.ZZIjdbc.service.ProducerService;
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
-import com.sun.net.httpserver.HttpServer;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class ConnectionFactoryTest {
     public static void main(String[] args) throws IOException {
-        HttpServer httpServer = HttpServer.create(new InetSocketAddress(8080),0);
-        httpServer.createContext("/name", new NameHandler());
-
-        httpServer.setExecutor(null);
-        httpServer.start();
-        
-
+        Producer producer = Producer.builder()
+        .name("Rafael")
+        .id(1)
+        .build();
+       ProducerService.update(producer);
+        log.info("Producer fond '{}'");
        
     }
 
-    static class NameHandler implements HttpHandler{
-
-        @Override
-        public void handle(HttpExchange exchange) throws IOException {
-            List<Producer> pList = ProducerService.findByName("Mar");
-            String response = pList.toString();
-            exchange.sendResponseHeaders(200, response.length());
-            OutputStream os = exchange.getResponseBody();
-            os.write(response.getBytes());
-            os.close();
-        }
-        
-    }
+    
     
 }
 
