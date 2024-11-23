@@ -20,10 +20,10 @@ import lombok.extern.log4j.Log4j2;
 public class ConnectionFactoryTest {
     public static void main(String[] args) throws IOException {
         Producer producer = Producer.builder()
-        .name("Rafael")
+        .name("teste")
         .id(1)
         .build();
-       ProducerService.update(producer);
+       ProducerService.save(producer);
         log.info("Producer fond '{}'");
        
     }

@@ -25,6 +25,9 @@ public class ProducerService {
     public static List<Producer> findByNamePreparedStatement(String name){
         return ProducerRepository.findByNamePreaparedStatement( name);
     }
+    public static void saveTrasaction(List<Producer> producers){
+        ProducerRepository.saveTrasaction(producers);
+    }
 
 
 }

@@ -132,4 +132,43 @@ public class ProducerRepository {
         return preparedStatement;
 
     }
+
+    public static void saveTrasaction(List<Producer> producer) {
+
+        try (Connection conn = ConectionFactory.getConnection();) {
+            conn.setAutoCommit(false);
+            prepareStatementSaveTransaction(conn, producer);
+            conn.commit();;
+
+            
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    private static void prepareStatementSaveTransaction(Connection connection, List<Producer> producer)
+            throws SQLException {
+        String sql = "INSERT INTO anime_store.producer (name) VALUES (?)";
+        boolean sholdRollback = false;
+
+
+        for (Producer p : producer) {
+            
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                log.info("Saving producer '{}'",p.getName());
+                preparedStatement.setString(1, p.getName());
+                if(p.getName().equalsIgnoreCase("donajtelo")){
+                    throw new SQLException();
+                }
+                preparedStatement.execute();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                sholdRollback = true;
+            }
+        }
+        if(sholdRollback) connection.rollback();
+
+    }
+
 }
