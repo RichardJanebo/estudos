@@ -6,13 +6,12 @@ import java.sql.SQLException;
 
 public class ConectionFactory {
 
-    public static Connection getConnection() throws SQLException{
+    public static Connection getConnection() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/anime_store";
         String userName = "root";
         String password = "root";
 
-        
-        return  DriverManager.getConnection(url, userName, password);
-    
+        return DriverManager.getConnection(url, userName, password);
 
-}}
+    }
+}
