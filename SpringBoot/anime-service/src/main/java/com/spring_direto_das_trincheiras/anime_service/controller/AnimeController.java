@@ -43,8 +43,8 @@ public class AnimeController {
         return anime.findById(id); 
     }
 
-    // @PostMapping
-    // public Anime save(@RequestBody Anime anime){
-
-    // }
+    @PostMapping
+    public Anime save(@RequestBody Anime anime){
+       return anime.save(anime);
+    }
 }

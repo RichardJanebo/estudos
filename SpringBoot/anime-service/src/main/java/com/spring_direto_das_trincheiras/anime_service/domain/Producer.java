@@ -6,30 +6,29 @@ import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 
 @Getter
-public class Anime {
+public class Producer {
 
     private Long id;
     private String name;
-    private Long epsodes;
 
-    public Anime() {
+    public Producer() {
     }
 
-    private Anime(Long id, String name, Long epsodes){
+    private Producer(Long id, String name){
         this.id = id;
         this.name = name;
-        this.epsodes = epsodes;
     }
 
     public static class Builder {
         private Long id;
         private String name;
-        private Long episodes;
 
         public Builder id(Long id) {
             this.id = id;
@@ -41,13 +40,10 @@ public class Anime {
             return this;
         }
 
-        public Builder episodes(Long episodes){
-            this.episodes =episodes;
-            return this;
-        }
+      
 
-        public Anime build() {
-            return new Anime(id, name,episodes);
+        public Producer build() {
+            return new Producer(id, name);
         }
     }
 
@@ -56,23 +52,23 @@ public class Anime {
         return "Anime{id=" + id + ", name='" + name + "'}";
     }
 
-    private static List<Anime> animes = new ArrayList<>(
-            List.of(new Anime.Builder().id(1L).name("Jujutsu Kaisen").episodes(396L).build(),
-                    new Anime.Builder().id(2L).name("Boku no Hero").episodes(952L).build(),
-                    new Anime.Builder().id(3L).name("Naruto").episodes(544L).build()));
+    private static List<Producer> producers = new ArrayList<>(
+            List.of(new Producer.Builder().id(1L).name("Mappa").build(),
+                    new Producer.Builder().id(2L).name("Madhouse").build(),
+                    new Producer.Builder().id(3L).name("Kyoto Animation").build()));
 
-    public List<Anime> hardcoded() {
-        return animes;
+    public List<Producer> hardcoded() {
+        return producers;
     }
 
-    public List<Anime> findByName(String name) {
-        return animes.stream()
+    public List<Producer> findByName(String name) {
+        return producers.stream()
                 .filter(e -> e.getName().equalsIgnoreCase(name))
                 .collect(Collectors.toList());
     }
 
-    public Anime findById(Long id) {
-        return animes.stream()
+    public Producer findById(Long id) {
+        return producers.stream()
                 .filter(e -> e.getId().equals(id))
                 .findFirst()
                 .orElse(null);
@@ -82,14 +78,13 @@ public class Anime {
         return ThreadLocalRandom.current().nextLong(1, 500);
     }
 
-    public Anime save(Anime anime) {
-        Anime outherAnime = new Anime.Builder()
+    public Producer save(Producer anime) {
+        Producer outherProducer = new Producer.Builder()
             .id(generatedId())
             .name(anime.getName())
-            .episodes(anime.getEpsodes())
             .build();
-        animes.add(outherAnime);
-        return outherAnime;
+        producers.add(outherProducer);
+        return outherProducer;
 
     }
 
