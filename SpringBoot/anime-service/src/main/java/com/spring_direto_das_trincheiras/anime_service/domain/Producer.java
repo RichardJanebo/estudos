@@ -9,10 +9,12 @@ import java.util.stream.Collectors;
 import com.spring_direto_das_trincheiras.anime_service.response.ProducerGetResponse;
 import com.spring_direto_das_trincheiras.anime_service.resquest.ProducerPostRequest;
 
+import lombok.Builder;
 import lombok.Getter;
 
 
 @Getter
+@Builder
 public class Producer {
 
     private Long id;
@@ -32,7 +34,7 @@ public class Producer {
     public static class Builder {
         private Long id;
         private String name;
-        private LocalDateTime date;
+        private LocalDateTime date; ;
 
         public Builder id(Long id) {
             this.id = id;
@@ -87,10 +89,11 @@ public class Producer {
         return ThreadLocalRandom.current().nextLong(1, 500);
     }
 
-    public Producer save(ProducerPostRequest anime) {
+    public Producer save(Producer producer) {
         Producer outherProducer = new Producer.Builder()
             .id(generatedId())
-            .name(anime.getName())
+            .name(producer.getName())
+            .date(LocalDateTime.now())
             .build();
         producers.add(outherProducer);
         return outherProducer;
