@@ -6,6 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,17 +27,18 @@ import lombok.extern.log4j.Log4j2;
 @RequestMapping("v1/producer")
 @Log4j2
 public class ProducerController {
-    private static final ProducerMapper MAPPER = ProducerMapper.INSTANCE;
+    private static final ProducerMapper PRODUCER_MAPPER = ProducerMapper.INSTANCE;
+
     private final Producer producerC = new Producer();
 
     @GetMapping
-    public List<Producer> listAllproducer() {
+    public List<ProducerGetResponse> listAllproducer() {
         log.info("Listing all producer");
         return producerC.hardcoded();
     }
 
     @GetMapping("/search")
-    public List<Producer> findByName(@RequestParam(required = false) String name) {
+    public List<ProducerGetResponse> findByName(@RequestParam(required = false) String name) {
 
         var producer = producerC.findByName(name);
         if (name == null)
@@ -46,7 +48,7 @@ public class ProducerController {
     }
 
     @GetMapping("/{id}")
-    public Producer findById(@PathVariable Long id) {
+    public ProducerGetResponse findById(@PathVariable Long id) {
         log.info("Finding producerby ID: {}", id);
         return producerC.findById(id);
     }
@@ -55,22 +57,18 @@ public class ProducerController {
     public ResponseEntity<ProducerGetResponse> producersave(@RequestBody ProducerPostRequest producer,
             @RequestHeader HttpHeaders headers) {
         log.info("{}", headers);
-        Producer producer3Producer = MAPPER.toProducer(producer);
+        Producer producer3Producer = PRODUCER_MAPPER.toProducer(producer);
+        ProducerGetResponse response = PRODUCER_MAPPER.toProducerGetResponse(producer3Producer);
 
+        producerC.save(producer3Producer);
 
-        Producer producer2 = producerC.save(new Producer.Builder()
-        .name(producer.getName())
-        .build());
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
-       
-       
+    }
 
-        ProducerGetResponse producerGetResponse = ProducerGetResponse.builder().id(producer2.getId())
-        .name(producer2.getName())
-        .date(producer2.getDate())
-        .build();
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(producerGetResponse);
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id){
+        producerC.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }
