@@ -6,6 +6,7 @@ import org.mapstruct.factory.Mappers;
 
 import com.spring_direto_das_trincheiras.anime_service.domain.Anime;
 import com.spring_direto_das_trincheiras.anime_service.response.AnimeGetResponse;
+import com.spring_direto_das_trincheiras.anime_service.response.AnimePutRequest;
 import com.spring_direto_das_trincheiras.anime_service.resquest.AnimePostRequest;
 
 @Mapper
@@ -16,4 +17,5 @@ public interface AnimeMapper {
     Anime toAnime(AnimePostRequest animePostRequest);
 
     AnimeGetResponse tAnimeGetResponse(Anime anime);
+    Anime animePut_Anime(AnimePutRequest animePutRequest);
 }

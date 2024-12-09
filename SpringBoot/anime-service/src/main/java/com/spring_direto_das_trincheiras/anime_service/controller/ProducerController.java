@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring_direto_das_trincheiras.anime_service.domain.Producer;
 import com.spring_direto_das_trincheiras.anime_service.mapper.ProducerMapper;
 import com.spring_direto_das_trincheiras.anime_service.response.ProducerGetResponse;
+import com.spring_direto_das_trincheiras.anime_service.response.ProducerPutResponse;
 import com.spring_direto_das_trincheiras.anime_service.resquest.ProducerPostRequest;
 
 import lombok.var;
@@ -69,6 +71,14 @@ public class ProducerController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id){
         producerC.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> deleteByIi(@RequestBody ProducerPutResponse producerPutResponse ){
+        producerC.deleteById(producerPutResponse.getId());
+        producerC.save(PRODUCER_MAPPER.putProducer_Producer(producerPutResponse));
+
         return ResponseEntity.noContent().build();
     }
 }

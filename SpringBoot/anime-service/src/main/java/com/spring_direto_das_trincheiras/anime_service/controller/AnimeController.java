@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring_direto_das_trincheiras.anime_service.domain.Anime;
 import com.spring_direto_das_trincheiras.anime_service.mapper.AnimeMapper;
 import com.spring_direto_das_trincheiras.anime_service.response.AnimeGetResponse;
+import com.spring_direto_das_trincheiras.anime_service.response.AnimePutRequest;
 import com.spring_direto_das_trincheiras.anime_service.resquest.AnimePostRequest;
 
 import lombok.var;
@@ -58,5 +60,15 @@ public class AnimeController {
 
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping
+    public ResponseEntity<Void> update(@RequestBody AnimePutRequest animePutRequest){
+        log.debug("Request to update anime by id {}",animePutRequest);
+        anime.deleteById(animePutRequest.getId());
+        anime.save(MAPPER.animePut_Anime(animePutRequest));
+
+        return ResponseEntity.noContent().build();
+    }
+ 
  
 }

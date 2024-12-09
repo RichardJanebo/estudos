@@ -71,56 +71,14 @@ public class Anime {
         return "Anime{id=" + id + ", name='" + name + "'}";
     }
 
-    private static List<Anime> animes = new ArrayList<>(
-            List.of(new Anime.Builder().id(1L).name("Jujutsu Kaisen").episodes(396L).build(),
-                    new Anime.Builder().id(2L).name("Boku no Hero").episodes(952L).build(),
-                    new Anime.Builder().id(3L).name("Naruto").episodes(544L).build()));
-
-    public List<AnimeGetResponse> hardcoded() {
-      return  animes.stream().map(e -> MAPPER.tAnimeGetResponse(e)).collect(Collectors.toList());
-
-    }
-
-    public List<AnimeGetResponse> findByName(String name) {
-        return animes.stream()
-                .filter(e -> e.getName().equalsIgnoreCase(name))
-                .map(e -> MAPPER.tAnimeGetResponse(e))
-                .collect(Collectors.toList());
-    }
-
-    public AnimeGetResponse findById(Long id) {
-
-        return animes.stream()
-                .filter(e -> e.getId().equals(id))
-                .map(MAPPER::tAnimeGetResponse)
-                .findFirst()
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Producer not found"));
-    }
+   
 
     public Long generatedId() {
         return ThreadLocalRandom.current().nextLong(1, 500);
     }
 
-    public Anime save(Anime anime) {
-        animes.add(anime);
-       return anime;
+    
 
-    }
-
-    public void deleteById(Long id) {
-        Boolean found = false;
-
-        for (int i = 0; i < animes.size(); i++) {
-            if(animes.get(i).getId().equals(id)){
-                found = true;
-                animes.remove(i);
-                
-            }
-        }
-
-        if(!found){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Aime not found");
-        }
-    }
+   
 
 }
