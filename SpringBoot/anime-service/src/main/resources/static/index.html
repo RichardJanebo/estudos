@@ -7,7 +7,36 @@
 </head>
 <body>
     <h1>Teste de end point</h1>
+    <button id="test">Teste</button>
+
 
     
 </body>
+<script>
+   const test =  document.getElementById("test");
+   const showCard =  async () => {
+        try{
+            const response = await  fetch("http://localhost:8080/v1/animes", {
+                method: 'GET',
+                headers:{
+                    'content-type':'application/json',
+                },
+
+            });
+
+            if(!response.ok){
+                throw new Error(`Erro na requisição ${response.status} - ${response.statusText}`)
+            }
+
+            const data = await response.json();
+            console.log("Dados recebidos " + JSON.stringify(data))
+            return data;
+        }catch(error){
+            console.log(error)
+            return null;
+        }
+   }
+
+   showCard();
+</script>
 </html>

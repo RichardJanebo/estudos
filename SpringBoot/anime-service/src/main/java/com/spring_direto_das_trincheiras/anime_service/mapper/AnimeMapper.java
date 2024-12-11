@@ -1,5 +1,7 @@
 package com.spring_direto_das_trincheiras.anime_service.mapper;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -17,5 +19,7 @@ public interface AnimeMapper {
     Anime toAnime(AnimePostRequest animePostRequest);
 
     AnimeGetResponse tAnimeGetResponse(Anime anime);
+
+    List<AnimeGetResponse> listAnimeToListAnimeGetResponse(List<Anime> animes);
     Anime animePut_Anime(AnimePutRequest animePutRequest);
 }

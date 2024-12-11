@@ -34,8 +34,7 @@ public class AnimeService {
         repository.deleteById(findByIdOrThrowNotFound(id));
     }
 
-    public void update(Long id) {
-
-        repository.update(findByIdOrThrowNotFound(id));
+    public void update(Anime anime) {
+        repository.update(anime);
     }
 }
