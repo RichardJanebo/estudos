@@ -1,5 +1,7 @@
 package com.spring_direto_das_trincheiras.anime_service.mapper;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -19,6 +21,8 @@ public interface ProducerMapper {
         
         ProducerGetResponse toProducerGetResponse(Producer producer);
 
+        List<ProducerGetResponse> toListProducerGetResponses(List<Producer> producers);
+ 
         @Mapping(target = "date", expression = "java(java.time.LocalDateTime.now())")
         Producer putProducer_Producer(ProducerPutResponse producerPutResponse);
 

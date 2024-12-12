@@ -72,53 +72,9 @@ public class Producer {
         return "Anime{id=" + id + ", name='" + name + "'}";
     }
 
-    private static final ProducerMapper MAPPER = ProducerMapper.INSTANCE;
-    private static List<Producer> producers = new ArrayList<>(
-            List.of(new Producer.Builder().id(1L).name("Mappa").date(LocalDateTime.now()).build(),
-                    new Producer.Builder().id(2L).name("Madhouse").date(LocalDateTime.now()).build(),
-                    new Producer.Builder().id(3L).name("Kyoto Animation").date(LocalDateTime.now()).build()));
+   
 
-    public List<ProducerGetResponse> hardcoded() {
-        return producers.stream().map(MAPPER::toProducerGetResponse).collect(Collectors.toList());
-    }
+  
 
-    public List<ProducerGetResponse> findByName(String name) {
-        return producers.stream()
-                .filter(e -> e.getName().equalsIgnoreCase(name))
-                .map(MAPPER::toProducerGetResponse)
-                .collect(Collectors.toList());
-    }
-
-    public ProducerGetResponse findById(Long id) {
-        return producers.stream()
-                .filter(e -> e.getId().equals(id))
-                .findFirst()
-                .map(MAPPER::toProducerGetResponse)
-                .orElseThrow(() ->  new ResponseStatusException(HttpStatus.NOT_FOUND,"Producer not Found"));
-    }
-
-    public Long generatedId() {
-        return ThreadLocalRandom.current().nextLong(1, 500);
-    }
-
-    public Producer save(Producer producer) {
-        producers.add(producer);
-        return producer;
-    }
-
-    public void deleteById(Long id){
-        boolean foud = false;
-        for (int i = 0; i < producers.size(); i++) {
-            if(producers.get(i).getId().equals(id)){
-                foud = true;
-                producers.remove(i);
-            }
-        }
-
-        if(!foud){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Producer not Found");
-        }
-
-    }
 
 }

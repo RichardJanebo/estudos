@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.spring_direto_das_trincheiras.anime_service.domain.Producer;
 import com.spring_direto_das_trincheiras.anime_service.mapper.ProducerMapper;
+import com.spring_direto_das_trincheiras.anime_service.repository.ProducerRepository;
 import com.spring_direto_das_trincheiras.anime_service.response.ProducerGetResponse;
 import com.spring_direto_das_trincheiras.anime_service.response.ProducerPutResponse;
 import com.spring_direto_das_trincheiras.anime_service.resquest.ProducerPostRequest;
+import com.spring_direto_das_trincheiras.anime_service.service.ProducerService;
 
 import lombok.var;
 import lombok.extern.log4j.Log4j2;
@@ -31,28 +33,25 @@ import lombok.extern.log4j.Log4j2;
 public class ProducerController {
     private static final ProducerMapper PRODUCER_MAPPER = ProducerMapper.INSTANCE;
 
-    private final Producer producerC = new Producer();
+    private final ProducerService producerService = new ProducerService();
 
     @GetMapping
     public List<ProducerGetResponse> listAllproducer() {
         log.info("Listing all producer");
-        return producerC.hardcoded();
+
+        return PRODUCER_MAPPER.toListProducerGetResponses(producerService.findAll());
+
     }
 
     @GetMapping("/search")
     public List<ProducerGetResponse> findByName(@RequestParam(required = false) String name) {
-
-        var producer = producerC.findByName(name);
-        if (name == null)
-            return producer;
-
-        return producer.stream().filter(produce -> produce.getName().equalsIgnoreCase(name)).toList();
+       return PRODUCER_MAPPER.toListProducerGetResponses(producerService.findByName(name));
     }
 
     @GetMapping("/{id}")
     public ProducerGetResponse findById(@PathVariable Long id) {
         log.info("Finding producerby ID: {}", id);
-        return producerC.findById(id);
+        return PRODUCER_MAPPER.toProducerGetResponse(producerService.findById(id)) ;
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, headers = "x-api-key")
@@ -60,24 +59,22 @@ public class ProducerController {
             @RequestHeader HttpHeaders headers) {
         log.info("{}", headers);
         Producer producer3Producer = PRODUCER_MAPPER.toProducer(producer);
-        ProducerGetResponse response = PRODUCER_MAPPER.toProducerGetResponse(producer3Producer);
 
-        producerC.save(producer3Producer);
+        ProducerGetResponse response = PRODUCER_MAPPER.toProducerGetResponse(producerService.save(producer3Producer));
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable Long id){
-        producerC.deleteById(id);
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        producerService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping
-    public ResponseEntity<Void> deleteByIi(@RequestBody ProducerPutResponse producerPutResponse ){
-        producerC.deleteById(producerPutResponse.getId());
-        producerC.save(PRODUCER_MAPPER.putProducer_Producer(producerPutResponse));
+    public ResponseEntity<Void> updateProducer(@RequestBody ProducerPutResponse producerPutResponse) {
+        producerService.update(PRODUCER_MAPPER.putProducer_Producer(producerPutResponse));
 
         return ResponseEntity.noContent().build();
     }
