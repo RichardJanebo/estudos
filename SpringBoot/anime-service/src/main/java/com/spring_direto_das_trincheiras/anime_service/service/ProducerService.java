@@ -2,7 +2,9 @@ package com.spring_direto_das_trincheiras.anime_service.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.spring_direto_das_trincheiras.anime_service.domain.Producer;
@@ -10,13 +12,14 @@ import com.spring_direto_das_trincheiras.anime_service.mapper.ProducerMapper;
 import com.spring_direto_das_trincheiras.anime_service.repository.ProducerRepository;
 import com.spring_direto_das_trincheiras.anime_service.response.ProducerGetResponse;
 
+@Service
 public class ProducerService {
     private ProducerRepository producerRepository;
     private static final ProducerMapper MAPPER = ProducerMapper.INSTANCE;
 
-
-    public ProducerService(){
-        producerRepository = new ProducerRepository();
+    @Autowired
+    public ProducerService(ProducerRepository repository){
+        this.producerRepository = repository;
     }
 
 

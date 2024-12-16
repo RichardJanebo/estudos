@@ -2,6 +2,7 @@ package com.spring_direto_das_trincheiras.anime_service.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -33,7 +34,13 @@ import lombok.extern.log4j.Log4j2;
 public class ProducerController {
     private static final ProducerMapper PRODUCER_MAPPER = ProducerMapper.INSTANCE;
 
-    private final ProducerService producerService = new ProducerService();
+    private final ProducerService producerService;
+
+    @Autowired
+    public ProducerController(ProducerService service){
+       this.producerService = service;
+    }
+
 
     @GetMapping
     public List<ProducerGetResponse> listAllproducer() {
