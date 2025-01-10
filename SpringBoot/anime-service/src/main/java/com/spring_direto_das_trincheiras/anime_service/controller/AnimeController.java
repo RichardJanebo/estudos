@@ -20,16 +20,17 @@ import com.spring_direto_das_trincheiras.anime_service.response.AnimePutRequest;
 import com.spring_direto_das_trincheiras.anime_service.resquest.AnimePostRequest;
 import com.spring_direto_das_trincheiras.anime_service.service.AnimeService;
 
-import lombok.var;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
 @RequestMapping("v1/animes")
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 @Log4j2
+@RequiredArgsConstructor
 public class AnimeController {
-    private static final AnimeMapper MAPPER = AnimeMapper.INSTANCE;
-    private final AnimeService animeService = new AnimeService();
+    private final AnimeMapper MAPPER;
+    private final AnimeService animeService;
 
 
     @GetMapping

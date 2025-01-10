@@ -19,27 +19,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.spring_direto_das_trincheiras.anime_service.domain.Producer;
 import com.spring_direto_das_trincheiras.anime_service.mapper.ProducerMapper;
-import com.spring_direto_das_trincheiras.anime_service.repository.ProducerRepository;
 import com.spring_direto_das_trincheiras.anime_service.response.ProducerGetResponse;
 import com.spring_direto_das_trincheiras.anime_service.response.ProducerPutResponse;
 import com.spring_direto_das_trincheiras.anime_service.resquest.ProducerPostRequest;
 import com.spring_direto_das_trincheiras.anime_service.service.ProducerService;
 
-import lombok.var;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
 @RequestMapping("v1/producer")
 @Log4j2
+@RequiredArgsConstructor
 public class ProducerController {
-    private static final ProducerMapper PRODUCER_MAPPER = ProducerMapper.INSTANCE;
-
+    private  final ProducerMapper PRODUCER_MAPPER;
     private final ProducerService producerService;
-
-    @Autowired
-    public ProducerController(ProducerService service){
-       this.producerService = service;
-    }
 
 
     @GetMapping

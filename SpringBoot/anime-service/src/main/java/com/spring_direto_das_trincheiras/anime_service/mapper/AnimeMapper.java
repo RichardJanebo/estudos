@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 import com.spring_direto_das_trincheiras.anime_service.domain.Anime;
@@ -11,7 +12,7 @@ import com.spring_direto_das_trincheiras.anime_service.response.AnimeGetResponse
 import com.spring_direto_das_trincheiras.anime_service.response.AnimePutRequest;
 import com.spring_direto_das_trincheiras.anime_service.resquest.AnimePostRequest;
 
-@Mapper
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface AnimeMapper {
     AnimeMapper INSTANCE = Mappers.getMapper(AnimeMapper.class);
 

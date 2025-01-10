@@ -1,13 +1,10 @@
 package com.spring_direto_das_trincheiras.anime_service.repository;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.stereotype.Repository;
 import com.spring_direto_das_trincheiras.anime_service.domain.Anime;
-
+@Repository
 public class AnimeHardCodedRepository {
     public static List<Anime> animes = new ArrayList<>(
             List.of(new Anime.Builder().id(1L).name("Jujutsu Kaisen").episodes(396L).build(),

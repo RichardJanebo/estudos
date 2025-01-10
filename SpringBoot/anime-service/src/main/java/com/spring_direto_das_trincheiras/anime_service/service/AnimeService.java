@@ -3,12 +3,14 @@ package com.spring_direto_das_trincheiras.anime_service.service;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.spring_direto_das_trincheiras.anime_service.domain.Anime;
 import com.spring_direto_das_trincheiras.anime_service.domain.Producer;
 import com.spring_direto_das_trincheiras.anime_service.repository.AnimeHardCodedRepository;
 
+@Service
 public class AnimeService {
     private AnimeHardCodedRepository repository;
 

@@ -5,21 +5,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-
 import com.spring_direto_das_trincheiras.anime_service.domain.Producer;
 
+import external.depemdency.Connection;
+import lombok.RequiredArgsConstructor;
+
 @Repository
+@RequiredArgsConstructor
 public class ProducerRepository {
+
+    private final Connection connection;
+
     private static List<Producer> producers = new ArrayList<>(
             List.of(new Producer.Builder().id(1L).name("Mappa").date(LocalDateTime.now()).build(),
                     new Producer.Builder().id(2L).name("Madhouse").date(LocalDateTime.now()).build(),
                     new Producer.Builder().id(3L).name("Kyoto Animation").date(LocalDateTime.now()).build()));
 
+
+    
 
     public List<Producer> findAll(){
         return producers;
