@@ -15,7 +15,6 @@ import com.spring_direto_das_trincheiras.anime_service.response.ProducerGetRespo
 @Service
 public class ProducerService {
     private ProducerRepository producerRepository;
-    private static final ProducerMapper MAPPER = ProducerMapper.INSTANCE;
 
     @Autowired
     public ProducerService(ProducerRepository repository){

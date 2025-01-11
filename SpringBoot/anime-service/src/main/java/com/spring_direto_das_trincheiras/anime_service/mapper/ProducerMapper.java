@@ -13,7 +13,6 @@ import com.spring_direto_das_trincheiras.anime_service.resquest.ProducerPostRequ
 
 @Mapper(componentModel =MappingConstants.ComponentModel.SPRING )
 public interface ProducerMapper {
-        ProducerMapper INSTANCE = Mappers.getMapper(ProducerMapper.class);
 
         @Mapping(target = "date", expression = "java(java.time.LocalDateTime.now())")
         @Mapping(target = "id", expression = "java(java.util.concurrent.ThreadLocalRandom.current().nextLong(100_000))")

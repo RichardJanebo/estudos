@@ -29,14 +29,14 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor
 public class AnimeController {
-    private final AnimeMapper MAPPER;
+    private final AnimeMapper maper;
     private final AnimeService animeService;
 
 
     @GetMapping
     public ResponseEntity<List<AnimeGetResponse>> listAllAnimes(String name) {
         log.info("Listing all animes");
-        List<AnimeGetResponse> listAnimeToListAnimeGetResponse = MAPPER
+        List<AnimeGetResponse> listAnimeToListAnimeGetResponse =  maper
                 .listAnimeToListAnimeGetResponse(animeService.findAll(null));
         return ResponseEntity.ok(listAnimeToListAnimeGetResponse);
     }
@@ -44,7 +44,7 @@ public class AnimeController {
 
     @GetMapping("/search")
     public ResponseEntity<List<AnimeGetResponse>> findByName(@RequestParam(required = false) String name) {
-        List<AnimeGetResponse> listAnimeToListAnimeGetResponse = MAPPER
+        List<AnimeGetResponse> listAnimeToListAnimeGetResponse =  maper
                 .listAnimeToListAnimeGetResponse(animeService.findAll(name));
         return ResponseEntity.ok(listAnimeToListAnimeGetResponse);
     }
@@ -54,14 +54,14 @@ public class AnimeController {
     public ResponseEntity<AnimeGetResponse> findById(@PathVariable Long id) {
         log.debug("Request to find anime by id '{}'", id);
 
-        AnimeGetResponse animeGetResponse = MAPPER.tAnimeGetResponse(animeService.findByIdOrThrowNotFound(id));
+        AnimeGetResponse animeGetResponse =  maper.tAnimeGetResponse(animeService.findByIdOrThrowNotFound(id));
         return ResponseEntity.ok(animeGetResponse);
     }
 
 
     @PostMapping
     public ResponseEntity<Void> save(@RequestBody AnimePostRequest animex) {
-        Anime anime02 = MAPPER.toAnime(animex);
+        Anime anime02 =  maper.toAnime(animex);
         animeService.save(anime02);
         return ResponseEntity.noContent().build();
     }
@@ -79,7 +79,7 @@ public class AnimeController {
     public ResponseEntity<Void> update(@RequestBody AnimePutRequest animePutRequest) {
         log.debug("Request to update anime by id {}", animePutRequest);
 
-        animeService.update(MAPPER.animePut_Anime(animePutRequest));
+        animeService.update( maper.animePut_Anime(animePutRequest));
 
         return ResponseEntity.noContent().build();
     }
