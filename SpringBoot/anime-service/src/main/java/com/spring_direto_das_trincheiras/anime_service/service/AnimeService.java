@@ -10,13 +10,14 @@ import com.spring_direto_das_trincheiras.anime_service.domain.Anime;
 import com.spring_direto_das_trincheiras.anime_service.domain.Producer;
 import com.spring_direto_das_trincheiras.anime_service.repository.AnimeHardCodedRepository;
 
+import lombok.RequiredArgsConstructor;
+
+
+@RequiredArgsConstructor
 @Service
 public class AnimeService {
-    private AnimeHardCodedRepository repository;
+    private final AnimeHardCodedRepository repository;
 
-    public AnimeService() {
-        this.repository = new AnimeHardCodedRepository();
-    }
 
     public List<Anime> findAll(String name) {
         return name == null ? repository.findAll() : repository.findByName(name);

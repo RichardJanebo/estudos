@@ -4,38 +4,40 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 import com.spring_direto_das_trincheiras.anime_service.domain.Anime;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Repository
 public class AnimeHardCodedRepository {
-    public static List<Anime> animes = new ArrayList<>(
-            List.of(new Anime.Builder().id(1L).name("Jujutsu Kaisen").episodes(396L).build(),
-                    new Anime.Builder().id(2L).name("Boku no Hero").episodes(952L).build(),
-                    new Anime.Builder().id(3L).name("Naruto").episodes(544L).build()));
+   private final AnimeData animes;
+
 
     public  List<Anime> findAll() {
-        return animes;
+        return animes.getAnimes();
     }
 
     public Optional<Anime> findById(Long id) {
-        return animes.stream()
+        return animes.getAnimes().stream()
                 .filter(e -> e.getId().equals(id))
                 .findFirst();
 
     }
 
     public List<Anime> findByName(String name) {
-        return animes.stream()
+        return animes.getAnimes().stream()
                 .filter(e -> e.getName().equalsIgnoreCase(name))
                 .toList();
 
     }
 
     public Anime save(Anime anime) {
-        animes.add(anime);
+        animes.getAnimes().add(anime);
         return anime;
     }
 
     public void deleteById(Anime anime){
-         animes.remove(anime);
+         animes.getAnimes().remove(anime);
     }
 
 

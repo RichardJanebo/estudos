@@ -17,6 +17,7 @@ import com.spring_direto_das_trincheiras.anime_service.resquest.ProducerPostRequ
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 
 
 @Getter
