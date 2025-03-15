@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.devdojo</groupId>
-	<artifactId>spring-boot-das-trincheiras</artifactId>
+	<artifactId>anime-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-das-trincheiras</name>
 	<description>Demo project for Spring Boot</description>
