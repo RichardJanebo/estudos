@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Madhouse"
+  },
+  {
+    "id": 2,
+    "name": "Kyoto Animation"
+  },
+  {
+    "id": 3,
+    "name": "Bones"
+  },
+  {
+    "id": 4,
+    "name": "Wit Studio"
+  },
+  {
+    "id": 5,
+    "name": "Ufotable"
+  },
+  {
+    "id": 6,
+    "name": "MAPPA"
+  },
+  {
+    "id": 7,
+    "name": "Toei Animation"
+  },
+  {
+    "id": 8,
+    "name": "Sunrise"
+  },
+  {
+    "id": 9,
+    "name": "CloverWorks"
+  },
+  {
+    "id": 10,
+    "name": "Trigger"
+  }
+]
