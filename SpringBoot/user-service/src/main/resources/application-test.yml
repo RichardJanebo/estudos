@@ -1,0 +1,4 @@
+database:
+  url: ${LOCAL_URL_DB:testedeurlpadrao}
+  username: ${LOCAL_USERNAME_BB:testedeusernamepadrao}
+  password: ${LOCAL_PASSWORD_DB:testllocalpassword}
