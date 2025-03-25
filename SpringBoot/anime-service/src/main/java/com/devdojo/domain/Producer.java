@@ -12,9 +12,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Producer {
     private static final Logger log = LoggerFactory.getLogger(Producer.class);
     @EqualsAndHashCode.Include
-    private Long id;
-    private String name;
-    private LocalDateTime dateTime;
+    private final Long id;
+    private final String name;
+    private final LocalDateTime dateTime;
 
     private Producer(Long id, String name, LocalDateTime localDateTime) {
         this.id = id;
@@ -43,8 +43,8 @@ public class Producer {
         private String name;
         private LocalDateTime dateTime;
 
-        public Builder id(Long id){
-            this.id =id;
+        public Builder id(Long id) {
+            this.id = id;
             return this;
         }
 
@@ -53,17 +53,16 @@ public class Producer {
             return this;
         }
 
-        public Builder dateTime(LocalDateTime dateTime){
+        public Builder dateTime(LocalDateTime dateTime) {
             this.dateTime = dateTime;
             return this;
         }
 
 
-
         public Producer build() {
             log.info("value id '{}'", this.id);
-            log.info("Value date '{}'" ,this.dateTime);
-            long l = this.id != null ? this.id :ThreadLocalRandom.current().nextLong(0, 100);
+            log.info("Value date '{}'", this.dateTime);
+            long l = this.id != null ? this.id : ThreadLocalRandom.current().nextLong(0, 100);
             LocalDateTime localDateTime = this.dateTime != null ? this.dateTime : LocalDateTime.now();
             return new Producer(l, name, localDateTime);
         }
