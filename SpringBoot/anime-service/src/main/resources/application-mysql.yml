@@ -1,0 +1,5 @@
+database:
+    localhost: 4568
+    username: ${LOCAL_USERNAME:userDefault}
+    password: 5a7s5
+
