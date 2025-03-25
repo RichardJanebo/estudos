@@ -21,12 +21,15 @@ public class AnimeController {
     private final AnimeService animeService;
     private static final AnimeMapper MAPPER = AnimeMapper.INSTANCE;
 
+
     public AnimeController(AnimeService animeService) {
         this.animeService = animeService;
     }
 
     @GetMapping
     public ResponseEntity<List<AnimeGetResponse>> findAllAnimes() {
+
+
         log.info(Thread.currentThread().getName());
         List<AnimeGetResponse> listAnimeGetResponse = MAPPER.toListAnimeGetResponse(animeService.findAll());
         return ResponseEntity.ok(listAnimeGetResponse);
@@ -64,21 +67,18 @@ public class AnimeController {
 
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteAnimeById(@PathVariable  Long id) {
+    public ResponseEntity<Void> deleteAnimeById(@PathVariable Long id) {
         animeService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping
     public ResponseEntity<Void> updateAnime(@RequestBody AnimePutRequest animePutRequest) {
-        log.info("Value do id do animePutRequest '{}'",animePutRequest.id());
         Anime anime = MAPPER.putToAnime(animePutRequest);
-        log.info("id do anime Anime do maper '{}'",anime.getId());
         animeService.upadate(anime);
 
         return ResponseEntity.noContent().build();
     }
-
 
 
 }
