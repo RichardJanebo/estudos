@@ -1,5 +1,6 @@
 package com.devdojo.service;
 
+import com.devdojo.commons.ProducerUtils;
 import com.devdojo.domain.Producer;
 import com.devdojo.repository.ProducerRepository;
 import org.assertj.core.api.Assertions;
@@ -18,7 +19,7 @@ import java.util.Optional;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ExtendWith(MockitoExtension.class)
 class ProducerServiceTest {
-    private final List<Producer> PRODUCER = new ArrayList<>();
+    private List<Producer> PRODUCER;
 
     @InjectMocks
     private ProducerService producerService;
@@ -26,21 +27,13 @@ class ProducerServiceTest {
     @Mock
     private ProducerRepository producerRepository;
 
+    @InjectMocks
+    private ProducerUtils producerUtils;
+
 
     @BeforeEach
     void init() {
-        PRODUCER.addAll(List.of(
-                new Producer.Builder().id(1L).name("Madhouse").build(),
-                new Producer.Builder().id(2L).name("Kyoto Animation").build(),
-                new Producer.Builder().id(3L).name("Bones").build(),
-                new Producer.Builder().id(4L).name("Wit Studio").build(),
-                new Producer.Builder().id(5L).name("Ufotable").build(),
-                new Producer.Builder().id(6L).name("MAPPA").build(),
-                new Producer.Builder().id(7L).name("Toei Animation").build(),
-                new Producer.Builder().id(8L).name("Sunrise").build(),
-                new Producer.Builder().id(9L).name("CloverWorks").build(),
-                new Producer.Builder().id(10L).name("Trigger").build()
-        ));
+        PRODUCER = producerUtils.newProducerList();
     }
 
     @Order(1)
@@ -70,8 +63,8 @@ class ProducerServiceTest {
         Assertions.assertThat(byNameList).contains(lastProducer, firstProducer);
     }
 
-    @Order(3)
 
+    @Order(3)
     @DisplayName("Find By Name and returns a empty List when Name not Found")
     @Test
     void findByName_When_Name_Not_Found() {
@@ -87,6 +80,7 @@ class ProducerServiceTest {
 
         Assertions.assertThat(byName).isNotNull().isEmpty();
     }
+
 
     @Order(4)
     @DisplayName("Find producer By Id and return Producer when successful")
