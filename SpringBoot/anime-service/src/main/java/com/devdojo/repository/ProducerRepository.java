@@ -1,17 +1,18 @@
 package com.devdojo.repository;
 
 import com.devdojo.domain.Producer;
-import com.devdojo.dto.dtoPostRequest.ProducerPostRequest;
 import org.springframework.stereotype.Repository;
 
-import java.util.*;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 
 @Repository
 public class ProducerRepository {
     private final ProducerData producerData;
 
-    public  ProducerRepository(ProducerData producerData){
+    public ProducerRepository(ProducerData producerData) {
         this.producerData = producerData;
     }
 
@@ -28,13 +29,13 @@ public class ProducerRepository {
         return producerData.getProducers().stream().filter(Producer -> Objects.equals(Producer.getId(), id)).findFirst();
     }
 
-    public Producer save(Producer producer){
+    public Producer save(Producer producer) {
 
         producerData.getProducers().add(producer);
         return producer;
     }
 
-    public void  delete(Producer producer){
+    public void delete(Producer producer) {
         producerData.getProducers().remove(producer);
     }
 }
