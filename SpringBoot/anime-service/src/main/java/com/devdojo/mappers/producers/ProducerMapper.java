@@ -6,9 +6,7 @@ import com.devdojo.dto.dtoGetRequest.ProducerGetResponse;
 import com.devdojo.dto.dtoPostRequest.ProducerPostRequest;
 import com.devdojo.dto.dtoPutRequest.ProducerPutRequest;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
 
