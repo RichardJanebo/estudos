@@ -8,7 +8,7 @@ import java.util.List;
 
 @Component
 public class ProducerData {
-    private  List<Producer> PRODUCER = new ArrayList<>(List.of(
+    private final List<Producer> PRODUCER = new ArrayList<>(List.of(
             new Producer.Builder().id(1L).name("Madhouse").build(),
             new Producer.Builder().id(2L).name("Kyoto Animation").build(),
             new Producer.Builder().id(3L).name("Bones").build(),
@@ -21,7 +21,7 @@ public class ProducerData {
             new Producer.Builder().id(10L).name("Trigger").build()
     ));
 
-    public List<Producer> getProducers(){
-        return  PRODUCER;
+    public List<Producer> getProducers() {
+        return PRODUCER;
     }
 }
