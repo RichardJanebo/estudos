@@ -1,5 +1,6 @@
 package com.devdojo.repository;
 
+import com.devdojo.commons.AnimeUtils;
 import com.devdojo.domain.Anime;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.*;
@@ -18,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ExtendWith(MockitoExtension.class)
 class AnimeRepositoryTest {
-    private final List<Anime> ANIMES = new ArrayList<>();
+    private  List<Anime> ANIMES ;
 
     @InjectMocks
     private AnimeRepository animeRepository;
@@ -26,16 +27,12 @@ class AnimeRepositoryTest {
     @Mock
     private AnimeData animeData;
 
+    @InjectMocks
+    private AnimeUtils animeUtils;
+
     @BeforeEach
     void init() {
-        ANIMES.addAll(List.of(
-                new Anime.Builder().name("Jujutsu Kaisen").build(),
-                new Anime.Builder().name("One Piece").build(),
-                new Anime.Builder().name("Attack on Titan").build(),
-                new Anime.Builder().name("Naruto").build(),
-                new Anime.Builder().name("Demon Slayer").build(),
-                new Anime.Builder().name("Death Note").build()
-        ));
+        ANIMES = animeUtils.newAnimeList();
     }
 
 
