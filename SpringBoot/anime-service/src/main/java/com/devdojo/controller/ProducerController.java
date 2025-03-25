@@ -1,20 +1,16 @@
 package com.devdojo.controller;
 
+import com.devdojo.domain.Producer;
 import com.devdojo.dto.dtoGetRequest.ProducerGetResponse;
 import com.devdojo.dto.dtoPostRequest.ProducerPostRequest;
 import com.devdojo.dto.dtoPutRequest.ProducerPutRequest;
-
 import com.devdojo.mappers.producers.ProducerMapper;
-
-import org.springframework.web.bind.annotation.*;
-import org.springframework.http.ResponseEntity;
+import com.devdojo.service.ProducerService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-
-import com.devdojo.service.ProducerService;
-import com.devdojo.domain.Producer;
-
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
