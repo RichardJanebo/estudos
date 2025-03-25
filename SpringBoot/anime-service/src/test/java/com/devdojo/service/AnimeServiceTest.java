@@ -1,5 +1,6 @@
 package com.devdojo.service;
 
+import com.devdojo.commons.AnimeUtils;
 import com.devdojo.domain.Anime;
 import com.devdojo.repository.AnimeRepository;
 
@@ -20,7 +21,7 @@ import org.assertj.core.api.Assertions;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ExtendWith(MockitoExtension.class)
 class AnimeServiceTest {
-    private final List<Anime> ANIMES = new ArrayList<>();
+    private  List<Anime> ANIMES;
 
     @InjectMocks
     private AnimeService animeService;
@@ -28,16 +29,12 @@ class AnimeServiceTest {
     @Mock
     private AnimeRepository animeRepository;
 
+    @InjectMocks
+    private AnimeUtils animeUtils;
+
     @BeforeEach
     void init() {
-        ANIMES.addAll(List.of(
-                new Anime.Builder().name("Jujutsu Kaisen").build(),
-                new Anime.Builder().name("One Piece").build(),
-                new Anime.Builder().name("Attack on Titan").build(),
-                new Anime.Builder().name("Naruto").build(),
-                new Anime.Builder().name("Demon Slayer").build(),
-                new Anime.Builder().name("Death Note").build()
-        ));
+      ANIMES = animeUtils.newAnimeList();
     }
 
     @Order(1)
