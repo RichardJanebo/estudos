@@ -9,7 +9,7 @@ import java.util.List;
 
 @Component
 public class AnimeData {
-    private  List<Anime> ANIMES = new ArrayList<>(List.of(
+    private final List<Anime> ANIMES = new ArrayList<>(List.of(
             new Anime.Builder().name("Jujutsu Kaisen").build(),
             new Anime.Builder().name("One Piece").build(),
             new Anime.Builder().name("Attack on Titan").build(),
@@ -19,7 +19,7 @@ public class AnimeData {
     ));
 
 
-    public List<Anime> getAnimes(){
+    public List<Anime> getAnimes() {
         return ANIMES;
     }
 }
